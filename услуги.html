@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="HusmaFit xizmatlari – kuch mashqlari, kardio, guruhli darslar, shaxsiy trener, yoga, crossfit. Narxlar va abonementlar." />
+  <title>HusmaFit | Xizmatlar</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Google Fonts: Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- AOS Animation -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+  <style>
+    body { font-family: 'Poppins', sans-serif; }
+    .nav-link { @apply relative transition-all duration-300 hover:text-red-500; }
+    .nav-link::after { content: ''; @apply absolute bottom-0 left-0 w-0 h-0.5 bg-red-600 transition-all duration-300; }
+    .nav-link:hover::after { @apply w-full; }
+    .mobile-menu { transition: all 0.3s ease-in-out; }
+    .card-hover:hover { transform: translateY(-8px); box-shadow: 0 20px 30px rgba(220, 38, 38, 0.15); }
+  </style>
+</head>
+<body class="bg-gray-900 text-white overflow-x-hidden">
+
+  <!-- Header -->
+  <header class="bg-gray-800/95 backdrop-blur-sm py-3 px-4 md:px-8 shadow-xl fixed top-0 left-0 w-full z-50 border-b border-gray-700">
+    <div class="container mx-auto flex justify-between items-center">
+      <!-- Logo -->
+      <div class="flex items-center gap-2">
+        <img src="./446215302_1156955372010908_2017285007514614506_n.jpg" alt="HusmaFit Logo" class="w-11 h-11 rounded-full object-cover shadow-md hover:scale-110 transition" loading="lazy" />
+        <h1 class="text-xl md:text-2xl font-extrabold">Husma<span class="text-red-600">Fit</span></h1>
+      </div>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center gap-5 text-sm">
+        <a href="index.html" class="nav-link font-semibold">Bosh sahifa</a>
+        <a href="онас.html" class="nav-link font-semibold">Biz haqimizda</a>
+        <a href="услуги.html" class="nav-link font-semibold text-red-500">Xizmatlar</a>
+        <a href="jadval.html" class="nav-link font-semibold">Jadval</a>
+        <a href="trainers.html" class="nav-link font-semibold">trener</a>
+        <a href="kontakt.html" class="nav-link font-semibold">Aloqa</a>
+        <a href="user-register.html" class="bg-red-600 text-white px-4 py-2 rounded-full font-bold hover:bg-red-700">Ro‘yxatdan o‘tish</a>
+        <a href="admin.html" class="bg-yellow-600 text-white px-4 py-2 rounded-full font-bold block text-center">Admin Panel</a>
+      </nav>
+
+      <!-- Social (Desktop) -->
+      <div class="hidden md:flex gap-3">
+        <a href="https://www.facebook.com/hospitality__pro" class="text-gray-400 hover:text-blue-500"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/hospitality__pro" class="text-gray-400 hover:text-pink-500"><i class="fab fa-instagram"></i></a>
+        <a href="https://t.me/SirojiddinSayfiddinovich" class="text-gray-400 hover:text-cyan-500"><i class="fab fa-telegram-plane"></i></a>
+      </div>
+
+      <!-- Mobile Button -->
+      <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="md:hidden">
+        <i class="fas fa-bars text-lg"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-gray-800/98 backdrop-blur-md border-t border-gray-700 py-4 px-6 mobile-menu">
+      <nav class="flex flex-col gap-3 text-left">
+        <a href="index.html" class="nav-link font-semibold">Bosh sahifa</a>
+        <a href="онас.html" class="nav-link font-semibold">Biz haqimizda</a>
+        <a href="услуги.html" class="nav-link font-semibold text-red-500">Xizmatlar</a>
+        <a href="jadval.html" class="nav-link font-semibold">Jadval</a>
+        <a href="trainers.html" class="nav-link font-semibold">Trener</a>
+        <a href="kontakt.html" class="nav-link font-semibold">Aloqa</a>
+        <a href="user-register.html" class="bg-red-600 text-white px-4 py-2 rounded-full font-bold hover:bg-red-700">Ro‘yxatdan o‘tish</a>
+                        <a href="admin.html" class="bg-yellow-600 text-white px-4 py-2 rounded-full font-bold block text-center">Admin Panel</a>
+      </nav>
+      <div class="flex gap-4 mt-4">
+        <a href="#" class="text-gray-400 hover:text-blue-500"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="text-gray-400 hover:text-pink-500"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="text-gray-400 hover:text-cyan-500"><i class="fab fa-telegram-plane"></i></a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section (Xizmatlar) -->
+  <section class="relative flex flex-col items-center justify-center text-center py-24 px-4 mt-16 md:mt-0 bg-gradient-to-b from-gray-800 to-gray-900" data-aos="fade-up">
+    <div class="max-w-4xl mx-auto">
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4">
+        Bizning <span class="text-red-600">Xizmatlar</span>
+      </h1>
+      <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+        Har bir maqsad uchun professional dastur. Kuch, chidamlilik, sog‘lomlik – barchasi HusmaFitda.
+      </p>
+      <div class="flex flex-wrap justify-center gap-3 text-sm">
+        <span class="bg-red-600 text-white px-4 py-1.5 rounded-full">50+ mashg‘ulot</span>
+        <span class="bg-gray-700 text-white px-4 py-1.5 rounded-full">Shaxsiy trener</span>
+        <span class="bg-gray-700 text-white px-4 py-1.5 rounded-full">Guruhli darslar</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Xizmatlar Katalogi -->
+  <section class="py-16 px-4 bg-gray-900">
+    <div class="container mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <!-- 1. Kuch Mashqlari -->
+        <div class="bg-gray-800 rounded-xl overflow-hidden shadow-lg card-hover transition-all duration-300" data-aos="fade-up">
+          <div class="h-48 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-3">
+              <h3 class="text-xl font-bold">Kuch Mashqlari</h3>
+              <i class="fas fa-dumbbell text-2xl text-red-600"></i>
+            </div>
+            <p class="text-gray-400 mb-4 text-sm">Shtanga, gantel, simulyatorlar – mushak massasi va kuch uchun.</p>
+            <ul class="text-sm text-gray-300 space-y-2 mb-4">
+              <li>✓ Professional dastur</li>
+              <li>✓ Og‘irliklar 1–100 kg</li>
+              <li>✓ 3 ta zona</li>
+            </ul>
+            <div class="flex justify-between items-center">
+              <span class="text-2xl font-bold text-red-600">50 000 so‘m</span>
+              <a href="./user-register.html" class="bg-red-600 text-white px-4 py-2 rounded-full text-sm hover:bg-red-700 transition">Tanlash</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Kardio -->
+        <div class="bg-gray-800 rounded-xl overflow-hidden shadow-lg card-hover transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
+          <div class="h-48 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1518614368383-3bd7ce3a4a3a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-3">
+              <h3 class="text-xl font-bold">Kardio</h3>
+              <i class="fas fa-running text-2xl text-red-600"></i>
+            </div>
+            <p class="text-gray-400 mb-4 text-sm">Yugurish yo‘laklari, velosipedlar – yurak va chidamlilik uchun.</p>
+            <ul class="text-sm text-gray-300 space-y-2 mb-4">
+              <li>✓ 20+ kardio jihoz</li>
+              <li>✓ Puls o‘lchagichlar</li>
+              <li>✓ Interval dasturlar</li>
+            </ul>
+            <div class="flex justify-between items-center">
+              <span class="text-2xl font-bold text-red-600">40 000 so‘m</span>
+              <a href="./user-register.html" class="bg-red-600 text-white px-4 py-2 rounded-full text-sm hover:bg-red-700 transition">Tanlash</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Guruhli Darslar -->
+        <div class="bg-gray-800 rounded-xl overflow-hidden shadow-lg card-hover transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
+          <div class="h-48 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1549570652-97324981a6fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-3">
+              <h3 class="text-xl font-bold">Guruhli Darslar</h3>
+              <i class="fas fa-user-friends text-2xl text-red-600"></i>
+            </div>
+            <p class="text-gray-400 mb-4 text-sm">Yoga, Zumba, CrossFit – motivatsiya va jamiyat bilan.</p>
+            <ul class="text-sm text-gray-300 space-y-2 mb-4">
+              <li>✓ 15+ dars turi</li>
+              <li>✓ Sertifikatlangan trener</li>
+              <li>✓ Kunlik jadval</li>
+            </ul>
+            <div class="flex justify-between items-center">
+              <span class="text-2xl font-bold text-red-600">60 000 so‘m</span>
+              <a href="./user-register.html" class="bg-red-600 text-white px-4 py-2 rounded-full text-sm hover:bg-red-700 transition">Tanlash</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Shaxsiy Trener -->
+        <div class="bg-gradient-to-br from-red-600 to-red-700 rounded-xl overflow-hidden shadow-lg card-hover transition-all duration-300" data-aos="fade-up" data-aos-delay="300">
+          <div class="h-48 bg-cover bg-center opacity-30" style="background-image: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+          <div class="p-6 relative z-10 text-white">
+            <div class="flex items-center justify-between mb-3">
+              <h3 class="text-xl font-bold">Shaxsiy Trener</h3>
+              <i class="fas fa-chalkboard-teacher text-2xl"></i>
+            </div>
+            <p class="mb-4 text-sm">Individual dastur, natija kafolati.</p>
+            <ul class="text-sm space-y-2 mb-4">
+              <li>✓ 1:1 mashg‘ulot</li>
+              <li>✓ Oziqlanish rejasi</li>
+              <li>✓ Progress kuzatuv</li>
+            </ul>
+            <div class="flex justify-between items-center">
+              <span class="text-2xl font-bold">200 000 so‘m / soat</span>
+              <a href="./user-register.html" class="bg-white text-red-600 px-4 py-2 rounded-full text-sm font-bold hover:bg-gray-100 transition">Band qilish</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. Yoga & Pilates -->
+        <div class="bg-gray-800 rounded-xl overflow-hidden shadow-lg card-hover transition-all duration-300" data-aos="fade-up" data-aos-delay="400">
+          <div class="h-48 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-3">
+              <h3 class="text-xl font-bold">Yoga & Pilates</h3>
+              <i class="fas fa-spa text-2xl text-red-600"></i>
+            </div>
+            <p class="text-gray-400 mb-4 text-sm">Tinchlik, moslashuvchanlik, ruhiy muvozanat.</p>
+            <ul class="text-sm text-gray-300 space-y-2 mb-4">
+              <li>✓ Hatha, Vinyasa</li>
+              <li>✓ Pilates reformer</li>
+              <li>✓ Meditatsiya</li>
+            </ul>
+            <div class="flex justify-between items-center">
+              <span class="text-2xl font-bold text-red-600">70 000 so‘m</span>
+              <a href="./user-register.html" class="bg-red-600 text-white px-4 py-2 rounded-full text-sm hover:bg-red-700 transition">Tanlash</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. CrossFit -->
+        <div class="bg-gray-800 rounded-xl overflow-hidden shadow-lg card-hover transition-all duration-300" data-aos="fade-up" data-aos-delay="500">
+          <div class="h-48 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1517838277536-f5f99be715b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-3">
+              <h3 class="text-xl font-bold">CrossFit</h3>
+              <i class="fas fa-fire text-2xl text-red-600"></i>
+            </div>
+            <p class="text-gray-400 mb-4 text-sm">Funksional mashqlar, yuqori intensivlik.</p>
+            <ul class="text-sm text-gray-300 space-y-2 mb-4">
+              <li>✓ WOD kunlik</li>
+              <li>✓ Box jihozlari</li>
+              <li>✓ Musobaqalar</li>
+            </ul>
+            <div class="flex justify-between items-center">
+              <span class="text-2xl font-bold text-red-600">80 000 so‘m</span>
+              <a href="./user-register.html" class="bg-red-600 text-white px-4 py-2 rounded-full text-sm hover:bg-red-700 transition">Tanlash</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Abonementlar -->
+  <section class="py-16 px-4 bg-gray-800">
+    <div class="container mx-auto text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4" data-aos="fade-up">Abonementlar</h2>
+      <p class="text-gray-400 mb-12 max-w-xl mx-auto" data-aos="fade-up" data-aos-delay="100">Har bir byudjetga mos tanlov</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+        <!-- 1 kun -->
+        <div class="bg-gray-900 p-6 rounded-xl border border-gray-700 hover:border-red-600 transition">
+          <h3 class="text-xl font-bold mb-2">1 kun</h3>
+          <p class="text-3xl font-bold text-red-600 mb-4">50 000 so‘m</p>
+          <ul class="text-sm text-gray-400 space-y-2 mb-6 text-left mx-auto max-w-xs">
+            <li>✓ Barcha zonalarga kirish</li>
+            <li>✓ Suv va shkaf</li>
+            <li>✗ Shaxsiy trener</li>
+          </ul>
+          <a href="#" class="block bg-gray-700 text-white py-2.5 rounded-full text-sm hover:bg-gray-600 transition">Sotib olish</a>
+        </div>
+
+        <!-- 1 oy (Eng mashhur) -->
+        <div class="bg-gradient-to-b from-red-600 to-red-700 p-6 rounded-xl text-white shadow-2xl transform scale-105">
+          <div class="flex items-center justify-center mb-2">
+            <span class="bg-white text-red-600 text-xs px-3 py-1 rounded-full font-bold">ENG MASHHUR</span>
+          </div>
+          <h3 class="text-xl font-bold mb-2">1 oy</h3>
+          <p class="text-3xl font-bold mb-4">450 000 so‘m</p>
+          <ul class="text-sm space-y-2 mb-6 text-left mx-auto max-w-xs">
+            <li>✓ Cheksiz kirish</li>
+            <li>✓ Guruhli darslar</li>
+            <li>✓ 1 bepul shaxsiy dars</li>
+          </ul>
+          <a href="#" class="block bg-white text-red-600 py-2.5 rounded-full font-bold text-sm hover:bg-gray-100 transition">Sotib olish</a>
+        </div>
+
+        <!-- 1 yil -->
+        <div class="bg-gray-900 p-6 rounded-xl border border-gray-700 hover:border-red-600 transition">
+          <h3 class="text-xl font-bold mb-2">1 yil</h3>
+          <p class="text-3xl font-bold text-red-600 mb-4">4 500 000 so‘m</p>
+          <ul class="text-sm text-gray-400 space-y-2 mb-6 text-left mx-auto max-w-xs">
+            <li>✓ 12 oy cheksiz</li>
+            <li>✓ 5 bepul shaxsiy dars</li>
+            <li>✓ Do‘stga sovg‘a</li>
+          </ul>
+          <a href="#" class="block bg-gray-700 text-white py-2.5 rounded-full text-sm hover:bg-gray-600 transition">Sotib olish</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 px-4 bg-red-600">
+    <div class="container mx-auto text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4" data-aos="fade-up">Birinchi mashg‘ulot – bepul!</h2>
+      <p class="text-lg mb-8 max-w-xl mx-auto" data-aos="fade-up" data-aos-delay="100">Ro‘yxatdan o‘ting va HusmaFit sifatini sinab ko‘ring.</p>
+      <a href="./user-register.html" class="bg-white text-red-600 font-bold px-8 py-3 rounded-full hover:bg-gray-100 transition text-lg" data-aos="fade-up" data-aos-delay="200">
+        Bepul sinov darsi
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 py-8 px-4 border-t border-gray-800">
+    <div class="container mx-auto text-center text-sm text-gray-400">
+      <p class="mb-3">&copy; 2025 <span class="text-red-600">HusmaFit</span>. Barcha huquqlar himoyalangan.</p>
+      <div class="flex justify-center gap-6 mb-3">
+        <a href="#" class="hover:text-white transition"><i class="fab fa-facebook-f text-lg"></i></a>
+        <a href="#" class="hover:text-white transition"><i class="fab fa-instagram text-lg"></i></a>
+        <a href="#" class="hover:text-white transition"><i class="fab fa-telegram-plane text-lg"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- AOS Script -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 800, once: true });
+  </script>
+</body>
+</html>
