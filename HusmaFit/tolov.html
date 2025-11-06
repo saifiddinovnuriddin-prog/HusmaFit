@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="HusmaFit – zalga borib naqd to‘lash. Manzil, telefon, xarita, bonus. Birinchi dars bepul!" />
+  <title>HusmaFit | Zalga borib to‘lash</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    body { font-family: 'Poppins', sans-serif; background: #111827; color: white; }
+    .info-card { @apply bg-gradient-to-br from-gray-800 to-gray-900 p-6 rounded-xl shadow-lg border border-gray-700; }
+    .map-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 1rem; }
+    .map-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+    .btn { @apply px-8 py-3 rounded-xl font-bold transition transform hover:scale-105; }
+  </style>
+</head>
+<body class="bg-gray-900 text-white overflow-x-hidden">
+
+  <!-- Header -->
+  <header class="bg-gray-800/95 backdrop-blur-sm py-3 px-4 md:px-8 shadow-xl fixed top-0 left-0 w-full z-50 border-b border-gray-700">
+    <div class="container mx-auto flex justify-between items-center">
+      <div class="flex items-center gap-2">
+        <img src="images/446215302_1156955372010908_2017285007514614506_n.jpg" alt="HusmaFit Logo" class="w-11 h-11 rounded-full object-cover shadow-md hover:scale-110 transition" loading="lazy" />
+        <h1 class="text-xl md:text-2xl font-extrabold">Husma<span class="text-red-600">Fit</span></h1>
+      </div>
+      <a href="index.html" class="text-sm text-gray-400 hover:text-white flex items-center gap-1">
+        <i class="fas fa-home"></i> Bosh sahifa
+      </a>
+    </div>
+  </header>
+
+  <!-- To‘lov sahifasi -->
+  <section class="pt-24 pb-16 px-4 mt-16">
+    <div class="container mx-auto max-w-2xl">
+
+      <!-- Muvaffaqiyatli ro‘yxatdan o‘tish -->
+      <div class="text-center mb-10" data-aos="fade-up">
+        <i class="fas fa-check-circle text-6xl text-green-500 mb-4"></i>
+        <h1 class="text-4xl md:text-5xl font-extrabold mb-2">Ro‘yxatdan o‘tdingiz!</h1>
+        <p class="text-lg text-gray-300">Endi zalga boring va naqd to‘lang</p>
+      </div>
+
+      <!-- Foydalanuvchi ma'lumotlari -->
+      <div class="info-card mb-8" data-aos="fade-up" data-aos-delay="100">
+        <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+          <i class="fas fa-user text-green-500"></i> Sizning ma'lumotlaringiz
+        </h3>
+        <div class="space-y-2 text-sm">
+          <p><strong>Ism:</strong> <span id="name-display" class="text-green-400"></span></p>
+          <p><strong>Telefon:</strong> <span id="phone-display" class="text-green-400"></span></p>
+          <p><strong>Abonement:</strong> <span id="plan-display" class="text-yellow-400 font-bold"></span></p>
+        </div>
+      </div>
+
+      <!-- Manzil -->
+      <div class="info-card mb-8" data-aos="fade-up" data-aos-delay="200">
+        <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+          <i class="fas fa-map-marker-alt text-red-600"></i> Bizning manzil
+        </h3>
+        <p class="text-gray-300">Toshkent sh., Chilonzor tumani, Qatortol ko‘chasi 45-uy</p>
+        <p class="text-sm text-gray-500 mt-1">Metro: Olmazor – 5 daqiqa piyoda</p>
+      </div>
+
+      <!-- Xarita -->
+      <div class="mb-8" data-aos="fade-up" data-aos-delay="300">
+        <div class="map-container shadow-lg">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2996.307843414361!2d69.208099315654!3d41.277729979237!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae8b2a7c8f7d8d%3A0x9f8e5b5e5e5e5e5e!2sChilonzor%2C%20Tashkent!5e0!3m2!1suz!2suz!4v1715000000000" 
+            allowfullscreen="" 
+            loading="lazy">
+          </iframe>
+        </div>
+      </div>
+
+      <!-- Ish vaqti -->
+      <div class="info-card mb-8" data-aos="fade-up" data-aos-delay="400">
+        <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+          <i class="fas fa-clock text-blue-500"></i> Ish vaqti
+        </h3>
+        <p class="text-gray-300">Dushanba – Shanba: <strong>06:00 – 23:00</strong></p>
+        <p class="text-gray-300">Yakshanba: <strong>Dam olish kuni</strong></p>
+      </div>
+
+      <!-- Aloqa -->
+      <div class="info-card mb-8" data-aos="fade-up" data-aos-delay="500">
+        <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+          <i class="fas fa-phone text-green-500"></i> Qo‘ng‘iroq qiling
+        </h3>
+        <div class="space-y-2">
+          <a href="tel:+998901234567" class="block text-lg text-green-400 hover:underline">
+            +998 90 123-45-67
+          </a>
+          <a href="tel:+998991234567" class="block text-lg text-green-400 hover:underline">
+            +998 99 123-45-67
+          </a>
+        </div>
+      </div>
+
+      <!-- Bonus -->
+      <div class="bg-gradient-to-r from-green-900 to-green-800 p-5 rounded-xl mb-8 text-center" data-aos="fade-up" data-aos-delay="600">
+        <p class="text-green-300 text-lg font-bold">
+          <i class="fas fa-gift"></i> Bonus: Zalga kelsangiz – <strong>bepul suv + 1 kunlik chegirma!</strong>
+        </p>
+      </div>
+
+      <!-- Tugmalar -->
+      <div class="flex flex-col sm:flex-row gap-4 justify-center" data-aos="fade-up" data-aos-delay="700">
+        <a href="tel:+998901234567" class="btn bg-green-600 hover:bg-green-700 flex items-center justify-center gap-2">
+          <i class="fas fa-phone"></i> Qo‘ng‘iroq qilish
+        </a>
+        <a href="index.html" class="btn bg-gray-600 hover:bg-gray-700">
+          Bosh sahifaga
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 py-6 text-center text-xs text-gray-500 border-t border-gray-800">
+    &copy; 2025 <span class="text-red-600">HusmaFit</span>. Barcha huquqlar himoyalangan.
+  </footer>
+
+  <!-- AOS Animation -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 800, once: true });
+
+    // URL dan ma'lumotlarni olish va ko‘rsatish
+    const urlParams = new URLSearchParams(window.location.search);
+    const name = urlParams.get('name');
+    const phone = urlParams.get('phone');
+    const plan = urlParams.get('plan');
+
+    if (name && phone && plan) {
+      document.getElementById('name-display').textContent = name;
+      document.getElementById('phone-display').textContent = phone;
+
+      const planText = plan === '50000' ? '1 kun – 50 000 so‘m' :
+                       plan === '450000' ? '1 oy – 450 000 so‘m' :
+                       '1 yil – 4 500 000 so‘m (2 oy bepul!)';
+      document.getElementById('plan-display').textContent = planText;
+    } else {
+      // Agar ma'lumot bo‘lmasa – bosh sahifaga yo‘naltirish
+      setTimeout(() => {
+        alert('Ma‘lumotlar topilmadi. Iltimos, qayta ro‘yxatdan o‘ting.');
+        window.location.href = 'user-register.html';
+      }, 1000);
+    }
+  </script>
+</body>
+</html>
