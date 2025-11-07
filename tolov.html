@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="uz">
+<html lang="ru">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="HusmaFit – zalga borib naqd to‘lash. Manzil, telefon, xarita, bonus. Birinchi dars bepul!" />
-  <title>HusmaFit | Zalga borib to‘lash</title>
+  <meta name="description" content="HusmaFit – приходите в зал и платите наличными. Адрес, телефон, карта, бонус. Первое занятие бесплатно!" />
+  <title data-lang="title">HusmaFit | Приходите и платите наличными</title>
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -12,15 +12,23 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-  <!-- Google Fonts -->
+  <!-- Google Fonts: Poppins -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
+  <!-- AOS Animation -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
   <style>
-    body { font-family: 'Poppins', sans-serif; background: #111827; color: white; }
-    .info-card { @apply bg-gradient-to-br from-gray-800 to-gray-900 p-6 rounded-xl shadow-lg border border-gray-700; }
+    body { font-family: 'Poppins', sans-serif; }
+    .nav-link { @apply relative transition-all duration-300 hover:text-red-500; }
+    .nav-link::after { content: ''; @apply absolute bottom-0 left-0 w-0 h-0.5 bg-red-600 transition-all duration-300; }
+    .nav-link:hover::after { @apply w-full; }
+    .mobile-menu { transition: all 0.3s ease-in-out; }
+    .card-hover:hover { transform: translateY(-8px); box-shadow: 0 20px 30px rgba(220, 38, 38, 0.15); }
+    .info-card { @apply bg-gradient-to-br from-gray-800 to-gray-900 p-6 rounded-xl shadow-lg card-hover transition-all duration-300 border border-gray-700; }
     .map-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 1rem; }
     .map-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
-    .btn { @apply px-8 py-3 rounded-xl font-bold transition transform hover:scale-105; }
+    .btn { @apply px-8 py-3.5 rounded-xl font-bold transition transform hover:scale-105 text-base; }
   </style>
 </head>
 <body class="bg-gray-900 text-white overflow-x-hidden">
@@ -28,97 +36,156 @@
   <!-- Header -->
   <header class="bg-gray-800/95 backdrop-blur-sm py-3 px-4 md:px-8 shadow-xl fixed top-0 left-0 w-full z-50 border-b border-gray-700">
     <div class="container mx-auto flex justify-between items-center">
+      <!-- Logo -->
       <div class="flex items-center gap-2">
-        <img src="images/446215302_1156955372010908_2017285007514614506_n.jpg" alt="HusmaFit Logo" class="w-11 h-11 rounded-full object-cover shadow-md hover:scale-110 transition" loading="lazy" />
+        <img src="./446215302_1156955372010908_2017285007514614506_n.jpg" alt="HusmaFit Логотип" class="w-11 h-11 rounded-full object-cover shadow-md hover:scale-110 transition" loading="lazy" />
         <h1 class="text-xl md:text-2xl font-extrabold">Husma<span class="text-red-600">Fit</span></h1>
       </div>
-      <a href="index.html" class="text-sm text-gray-400 hover:text-white flex items-center gap-1">
-        <i class="fas fa-home"></i> Bosh sahifa
-      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center gap-5 text-sm">
+        <a href="index.html" class="nav-link font-semibold" data-lang="nav-home">Главная</a>
+        <a href="онас.html" class="nav-link font-semibold" data-lang="nav-about">О нас</a>
+        <a href="услуги.html" class="nav-link font-semibold" data-lang="nav-services">Услуги</a>
+        <a href="jadval.html" class="nav-link font-semibold" data-lang="nav-schedule">Расписание</a>
+        <a href="trainers.html" class="nav-link font-semibold" data-lang="nav-trainers">Тренеры</a>
+        <a href="kontakt.html" class="nav-link font-semibold" data-lang="nav-contact">Контакты</a>
+        <a href="user-register.html" class="bg-red-600 text-white px-4 py-2 rounded-full font-bold hover:bg-red-700" data-lang="nav-register">Регистрация</a>
+        <a href="admin.html" class="bg-yellow-600 text-white px-4 py-2 rounded-full font-bold block text-center" data-lang="nav-admin">Админ-панель</a>
+        <!-- Language Button -->
+      </nav>
+      
+      
+      <!-- Social (Desktop) -->
+      <div class="hidden md:flex gap-3">        <a href="tel:+998770009090" class="text-gray-400 hover:text-blue-500 flex items-center gap-2"><i class="fa-solid fa-phone"></i></a>
+        <a href="https://www.instagram.com/husma.fit/#" class="text-gray-400 hover:text-pink-500"><i class="fab fa-instagram"></i></a>
+        <a href="tel:+998770009090" class="text-gray-400 hover:text-blue-500 flex items-center gap-2"><i class="fab fa-telegram-plane"></i></a>
+      </div>
+      
+      <!-- Mobile Button -->
+      <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="md:hidden">
+        <i class="fas fa-bars text-lg"></i>
+      </button>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-gray-800/98 backdrop-blur-md border-t border-gray-700 py-4 px-6 mobile-menu">
+      <nav class="flex flex-col gap-3 text-left">
+        <a href="index.html" class="nav-link font-semibold" data-lang="nav-home">Главная</a>
+        <a href="онас.html" class="nav-link font-semibold" data-lang="nav-about">О нас</a>
+        <a href="услуги.html" class="nav-link font-semibold" data-lang="nav-services">Услуги</a>
+        <a href="jadval.html" class="nav-link font-semibold" data-lang="nav-schedule">Расписание</a>
+        <a href="trainers.html" class="nav-link font-semibold" data-lang="nav-trainers">Тренеры</a>
+        <a href="kontakt.html" class="nav-link font-semibold" data-lang="nav-contact">Контакты</a>
+        <a href="user-register.html" class="bg-red-600 text-white px-4 py-2 rounded-full font-bold hover:bg-red-700" data-lang="nav-register">Регистрация</a>
+        <a href="admin.html" class="bg-yellow-600 text-white px-4 py-2 rounded-full font-bold block text-center" data-lang="nav-admin">Админ-панель</a>
+        <button id="lang-toggle" class="bg-gray-700 text-white px-3 py-2 rounded-full text-xs font-bold hover:bg-gray-600 transition flex items-center gap-1 ml-2">
+          <i class="fas fa-globe"></i> <span id="lang-text">EN</span>
+        </button>
+      </nav>
+      <div class="flex gap-4 mt-4 justify-center">        <a href="tel:+998770009090" class="text-gray-400 hover:text-blue-500 flex items-center gap-2"><i class="fa-solid fa-phone"></i></a>
+        <a href="https://www.instagram.com/husma.fit/#" class="text-gray-400 hover:text-pink-500"><i class="fab fa-instagram"></i></a>
+        <a href="tel:+998770009090" class="text-gray-400 hover:text-blue-500 flex items-center gap-2"><i class="fab fa-telegram-plane"></i></a>
+      </div>
     </div>
   </header>
 
-  <!-- To‘lov sahifasi -->
+  <!-- Успешная регистрация -->
   <section class="pt-24 pb-16 px-4 mt-16">
-    <div class="container mx-auto max-w-2xl">
-
-      <!-- Muvaffaqiyatli ro‘yxatdan o‘tish -->
-      <div class="text-center mb-10" data-aos="fade-up">
-        <i class="fas fa-check-circle text-6xl text-green-500 mb-4"></i>
-        <h1 class="text-4xl md:text-5xl font-extrabold mb-2">Ro‘yxatdan o‘tdingiz!</h1>
-        <p class="text-lg text-gray-300">Endi zalga boring va naqd to‘lang</p>
+    <div class="container mx-auto max-w-3xl">
+      <div class="text-center sm:text-start mb-8" data-aos="fade-up">
+        <i class="fas fa-check-circle text-5xl sm:text-6xl text-green-500 mb-3"></i>
+        <h1 class="text-2xl sm:text-3xl font-extrabold mb-2">
+          Вы зарегистрированы!
+        </h1>
+        <p class="text-sm sm:text-base text-gray-300">
+          Теперь приходите в зал и платите наличными
+        </p>
       </div>
 
-      <!-- Foydalanuvchi ma'lumotlari -->
+
+      <!-- Данные пользователя -->
       <div class="info-card mb-8" data-aos="fade-up" data-aos-delay="100">
-        <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
-          <i class="fas fa-user text-green-500"></i> Sizning ma'lumotlaringiz
+        <h3 class="text-2xl font-bold mb-5 flex items-center gap-3">
+          <i class="fas fa-user text-green-500 text-xl"></i>
+          <span data-lang="user-data-title">Ваши данные</span>
         </h3>
-        <div class="space-y-2 text-sm">
-          <p><strong>Ism:</strong> <span id="name-display" class="text-green-400"></span></p>
-          <p><strong>Telefon:</strong> <span id="phone-display" class="text-green-400"></span></p>
-          <p><strong>Abonement:</strong> <span id="plan-display" class="text-yellow-400 font-bold"></span></p>
+        <div class="space-y-3 text-base">
+          <p><strong data-lang="name-label">Имя:</strong> <span id="name-display" class="text-green-400 font-medium"></span></p>
+          <p><strong data-lang="phone-label">Телефон:</strong> <span id="phone-display" class="text-green-400 font-medium"></span></p>
+          <p><strong data-lang="plan-label">Абонемент:</strong> <span id="plan-display" class="text-yellow-400 font-bold"></span></p>
         </div>
       </div>
 
-      <!-- Manzil -->
+      <!-- Адрес -->
       <div class="info-card mb-8" data-aos="fade-up" data-aos-delay="200">
-        <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
-          <i class="fas fa-map-marker-alt text-red-600"></i> Bizning manzil
+        <h3 class="text-2xl font-bold mb-5 flex items-center gap-3">
+          <i class="fas fa-map-marker-alt text-red-600 text-xl"></i>
+          <span data-lang="address-title">Наш адрес</span>
         </h3>
-        <p class="text-gray-300">Toshkent sh., Chilonzor tumani, Qatortol ko‘chasi 45-uy</p>
-        <p class="text-sm text-gray-500 mt-1">Metro: Olmazor – 5 daqiqa piyoda</p>
+        <p class="text-gray-300 text-base" data-lang="address">
+          Sergeli tuman Azima Umararova ko‘chasi 22
+        </p>
+        <p class="text-sm text-gray-500 mt-2" data-lang="address-metro">Метро: Олмазор – 5 минут пешком</p>
       </div>
 
-      <!-- Xarita -->
+      <!-- Карта -->
       <div class="mb-8" data-aos="fade-up" data-aos-delay="300">
-        <div class="map-container shadow-lg">
+        <div class="map-container shadow-2xl card-hover">
           <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2996.307843414361!2d69.208099315654!3d41.277729979237!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae8b2a7c8f7d8d%3A0x9f8e5b5e5e5e5e5e!2sChilonzor%2C%20Tashkent!5e0!3m2!1suz!2suz!4v1715000000000" 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2996.307843414361!2d69.208099315654!3d41.277729979237!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae8b2a7c8f7d8d%3A0x9f8e5b5e5e5e5e5e!2sChilonzor%2C%20Tashkent!5e0!3m2!1sru!2suz!4v1715000000000" 
             allowfullscreen="" 
-            loading="lazy">
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
           </iframe>
         </div>
       </div>
 
-      <!-- Ish vaqti -->
+      <!-- Часы работы -->
       <div class="info-card mb-8" data-aos="fade-up" data-aos-delay="400">
-        <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
-          <i class="fas fa-clock text-blue-500"></i> Ish vaqti
+        <h3 class="text-2xl font-bold mb-5 flex items-center gap-3">
+          <i class="fas fa-clock text-blue-500 text-xl"></i>
+          <span data-lang="hours-title">Часы работы</span>
         </h3>
-        <p class="text-gray-300">Dushanba – Shanba: <strong>06:00 – 23:00</strong></p>
-        <p class="text-gray-300">Yakshanba: <strong>Dam olish kuni</strong></p>
+        <p class="text-gray-300 text-base" data-lang="hours-week">
+          Понедельник – Суббота: <strong>06:00 – 23:00</strong>
+        </p>
+        <p class="text-gray-300 text-base" data-lang="hours-sunday">
+          Воскресенье: <strong>Выходной</strong>
+        </p>
       </div>
 
-      <!-- Aloqa -->
+      <!-- Контакты -->
       <div class="info-card mb-8" data-aos="fade-up" data-aos-delay="500">
-        <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
-          <i class="fas fa-phone text-green-500"></i> Qo‘ng‘iroq qiling
+        <h3 class="text-2xl font-bold mb-5 flex items-center gap-3">
+          <i class="fas fa-phone text-green-500 text-xl"></i>
+          <span data-lang="contact-title">Позвоните нам</span>
         </h3>
-        <div class="space-y-2">
-          <a href="tel:+998901234567" class="block text-lg text-green-400 hover:underline">
+        <div class="space-y-3">
+          <a href="tel:+998 77 000-90-90" class="block text-lg text-green-400 hover:text-green-300 transition font-medium">
             +998 90 123-45-67
           </a>
-          <a href="tel:+998991234567" class="block text-lg text-green-400 hover:underline">
-            +998 99 123-45-67
+          <a href="tel:+998 77 000-90-90" class="block text-lg text-green-400 hover:text-green-300 transition font-medium">
+            +998 77 000-90-90
           </a>
         </div>
       </div>
 
-      <!-- Bonus -->
-      <div class="bg-gradient-to-r from-green-900 to-green-800 p-5 rounded-xl mb-8 text-center" data-aos="fade-up" data-aos-delay="600">
-        <p class="text-green-300 text-lg font-bold">
-          <i class="fas fa-gift"></i> Bonus: Zalga kelsangiz – <strong>bepul suv + 1 kunlik chegirma!</strong>
+      <!-- Бонус -->
+      <div class="bg-gradient-to-r from-green-900 to-green-800 p-6 rounded-xl mb-10 text-center shadow-lg card-hover" data-aos="fade-up" data-aos-delay="600">
+        <p class="text-green-300 text-lg md:text-xl font-bold">
+          <i class="fas fa-gift text-2xl mr-2"></i>
+          <span data-lang="bonus-text">Бонус: Приходите в зал – <strong>бесплатная вода + скидка на 1 день!</strong></span>
         </p>
       </div>
 
-      <!-- Tugmalar -->
+      <!-- Кнопки -->
       <div class="flex flex-col sm:flex-row gap-4 justify-center" data-aos="fade-up" data-aos-delay="700">
         <a href="tel:+998901234567" class="btn bg-green-600 hover:bg-green-700 flex items-center justify-center gap-2">
-          <i class="fas fa-phone"></i> Qo‘ng‘iroq qilish
+          <i class="fas fa-phone"></i> <span data-lang="btn-call">Позвонить</span>
         </a>
-        <a href="index.html" class="btn bg-gray-600 hover:bg-gray-700">
-          Bosh sahifaga
+        <a href="index.html" class="btn bg-gray-600 hover:bg-gray-700" data-lang="btn-home">
+          На главную
         </a>
       </div>
 
@@ -126,36 +193,155 @@
   </section>
 
   <!-- Footer -->
-  <footer class="bg-gray-900 py-6 text-center text-xs text-gray-500 border-t border-gray-800">
-    &copy; 2025 <span class="text-red-600">HusmaFit</span>. Barcha huquqlar himoyalangan.
+  <footer class="bg-gray-900 py-8 px-4 border-t border-gray-800">
+    <div class="container mx-auto text-center text-sm text-gray-400">
+      <p class="mb-3" data-lang="footer-copy">&copy; 2025 <span class="text-red-600">HusmaFit</span>. Все права защищены.</p>
+      <div class="flex justify-center gap-6">        <a href="tel:+998770009090" class="text-gray-400 hover:text-blue-500 flex items-center gap-2"><i class="fa-solid fa-phone"></i></a>
+        <a href="https://www.instagram.com/husma.fit/#" class="text-gray-400 hover:text-pink-500"><i class="fab fa-instagram"></i></a>
+        <a href="tel:+998770009090" class="text-gray-400 hover:text-blue-500 flex items-center gap-2"><i class="fab fa-telegram-plane"></i></a>
+      </div>
+    </div>
   </footer>
 
-  <!-- AOS Animation -->
+  <!-- AOS Script -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init({ duration: 800, once: true });
+  </script>
 
-    // URL dan ma'lumotlarni olish va ko‘rsatish
-    const urlParams = new URLSearchParams(window.location.search);
-    const name = urlParams.get('name');
-    const phone = urlParams.get('phone');
-    const plan = urlParams.get('plan');
+  <!-- Единая система перевода + отображение данных -->
+  <script>
+    const translations = {
+      ru: {
+        "title": "HusmaFit | Приходите и платите наличными",
 
-    if (name && phone && plan) {
-      document.getElementById('name-display').textContent = name;
-      document.getElementById('phone-display').textContent = phone;
+        // Навигация
+        "nav-home": "Главная", "nav-about": "О нас", "nav-services": "Услуги", "nav-schedule": "Расписание",
+        "nav-trainers": "Тренеры", "nav-contact": "Контакты", "nav-register": "Регистрация", "nav-admin": "Админ-панель",
 
-      const planText = plan === '50000' ? '1 kun – 50 000 so‘m' :
-                       plan === '450000' ? '1 oy – 450 000 so‘m' :
-                       '1 yil – 4 500 000 so‘m (2 oy bepul!)';
-      document.getElementById('plan-display').textContent = planText;
-    } else {
-      // Agar ma'lumot bo‘lmasa – bosh sahifaga yo‘naltirish
-      setTimeout(() => {
-        alert('Ma‘lumotlar topilmadi. Iltimos, qayta ro‘yxatdan o‘ting.');
-        window.location.href = 'user-register.html';
-      }, 1000);
+        // Успех
+        "success-title": "Вы зарегистрированы!",
+        "success-desc": "Теперь приходите в зал и платите наличными",
+        "user-data-title": "Ваши данные",
+        "name-label": "Имя:", "phone-label": "Телефон:", "plan-label": "Абонемент:",
+
+        // Адрес
+        "address-title": "Наш адрес",
+        "address": "Sergeli tuman Azima Umararova ko‘chasi 22",
+        "address-metro": "Метро: Олмазор – 5 минут пешком",
+
+        // Часы
+        "hours-title": "Часы работы",
+        "hours-week": "Понедельник – Суббота: <strong>06:00 – 23:00</strong>",
+        "hours-sunday": "Воскресенье: <strong>Выходной</strong>",
+
+        // Контакты
+        "contact-title": "Позвоните нам",
+
+        // Бонус
+        "bonus-text": "Бонус: Приходите в зал – <strong>бесплатная вода + скидка на 1 день!</strong>",
+
+        // Кнопки
+        "btn-call": "Позвонить",
+        "btn-home": "На главную",
+
+        // Футер
+        "footer-copy": "&copy; 2025 <span class='text-red-600'>HusmaFit</span>. Все права защищены.",
+
+        "lang-text": "EN"
+      },
+      en: {
+        "title": "HusmaFit | Come and Pay in Cash",
+
+        // Navigation
+        "nav-home": "Home", "nav-about": "About", "nav-services": "Services", "nav-schedule": "Schedule",
+        "nav-trainers": "Trainers", "nav-contact": "Contact", "nav-register": "Register", "nav-admin": "Admin Panel",
+
+        // Success
+        "success-title": "You're Registered!",
+        "success-desc": "Now come to the gym and pay in cash",
+        "user-data-title": "Your Details",
+        "name-label": "Name:", "phone-label": "Phone:", "plan-label": "Plan:",
+
+        // Address
+        "address-title": "Our Address",
+        "address": "Sergeli tuman Azima Umararova ko‘chasi 22",
+        "address-metro": "Metro: Olmazor – 5 minutes walk",
+
+        // Hours
+        "hours-title": "Working Hours",
+        "hours-week": "Monday – Saturday: <strong>06:00 – 23:00</strong>",
+        "hours-sunday": "Sunday: <strong>Closed</strong>",
+
+        // Contact
+        "contact-title": "Call Us",
+
+        // Bonus
+        "bonus-text": "Bonus: Come to the gym – <strong>free water + 1 day discount!</strong>",
+
+        // Buttons
+        "btn-call": "Call",
+        "btn-home": "Home",
+
+        // Footer
+        "footer-copy": "&copy; 2025 <span class='text-red-600'>HusmaFit</span>. All rights reserved.",
+
+        "lang-text": "RU"
+      }
+    };
+
+    let currentLang = localStorage.getItem('lang') || 'ru';
+
+    function toggleLanguage() {
+      currentLang = currentLang === 'ru' ? 'en' : 'ru';
+      localStorage.setItem('lang', currentLang);
+      document.documentElement.lang = currentLang;
+      updateTexts();
+      document.getElementById('lang-text').textContent = translations[currentLang]['lang-text'];
     }
+
+    function updateTexts() {
+      const t = translations[currentLang];
+      Object.keys(t).forEach(key => {
+        document.querySelectorAll(`[data-lang="${key}"]`).forEach(el => {
+          el.innerHTML = t[key];
+        });
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // Язык
+      document.getElementById('lang-toggle').addEventListener('click', toggleLanguage);
+      document.documentElement.lang = currentLang;
+      updateTexts();
+      document.getElementById('lang-text').textContent = translations[currentLang]['lang-text'];
+
+      // Данные из URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const name = urlParams.get('name');
+      const phone = urlParams.get('phone');
+      const plan = urlParams.get('plan');
+
+      if (name && phone && plan) {
+        document.getElementById('name-display').textContent = decodeURIComponent(name);
+        document.getElementById('phone-display').textContent = decodeURIComponent(phone);
+
+        const planTextRu = plan === '50000' ? '1 день – 50 000 сум' :
+                           plan === '450000' ? '1 месяц – 450 000 сум' :
+                           '1 год – 4 500 000 сум (2 месяца бесплатно!)';
+
+        const planTextEn = plan === '50000' ? '1 Day – 50,000 UZS' :
+                           plan === '450000' ? '1 Month – 450,000 UZS' :
+                           '1 Year – 4,500,000 UZS (2 months free!)';
+
+        document.getElementById('plan-display').textContent = currentLang === 'ru' ? planTextRu : planTextEn;
+      } else {
+        setTimeout(() => {
+          alert(currentLang === 'ru' ? 'Данные не найдены. Пожалуйста, зарегистрируйтесь заново.' : 'Data not found. Please register again.');
+          window.location.href = 'user-register.html';
+        }, 1000);
+      }
+    });
   </script>
 </body>
 </html>
