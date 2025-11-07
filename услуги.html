@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="uz">
+<html lang="ru">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="HusmaFit xizmatlari – kuch mashqlari, kardio, guruhli darslar, shaxsiy trener, yoga, crossfit. Narxlar va abonementlar." />
-  <title>HusmaFit | Xizmatlar</title>
+  <meta name="description" content="Услуги HusmaFit – силовые тренировки, кардио, групповые занятия, персональный тренер, йога, кроссфит. Цены и абонементы." />
+  <title>HusmaFit | Услуги</title>
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -34,27 +34,32 @@
     <div class="container mx-auto flex justify-between items-center">
       <!-- Logo -->
       <div class="flex items-center gap-2">
-        <img src="./446215302_1156955372010908_2017285007514614506_n.jpg" alt="HusmaFit Logo" class="w-11 h-11 rounded-full object-cover shadow-md hover:scale-110 transition" loading="lazy" />
+        <img src="./446215302_1156955372010908_2017285007514614506_n.jpg" alt="Логотип HusmaFit" class="w-11 h-11 rounded-full object-cover shadow-md hover:scale-110 transition" loading="lazy" />
         <h1 class="text-xl md:text-2xl font-extrabold">Husma<span class="text-red-600">Fit</span></h1>
       </div>
 
       <!-- Desktop Nav -->
       <nav class="hidden md:flex items-center gap-5 text-sm">
-        <a href="index.html" class="nav-link font-semibold">Bosh sahifa</a>
-        <a href="онас.html" class="nav-link font-semibold">Biz haqimizda</a>
-        <a href="услуги.html" class="nav-link font-semibold text-red-500">Xizmatlar</a>
-        <a href="jadval.html" class="nav-link font-semibold">Jadval</a>
-        <a href="trainers.html" class="nav-link font-semibold">trener</a>
-        <a href="kontakt.html" class="nav-link font-semibold">Aloqa</a>
-        <a href="user-register.html" class="bg-red-600 text-white px-4 py-2 rounded-full font-bold hover:bg-red-700">Ro‘yxatdan o‘tish</a>
-        <a href="admin.html" class="bg-yellow-600 text-white px-4 py-2 rounded-full font-bold block text-center">Admin Panel</a>
+        <a href="index.html" class="nav-link font-semibold" data-lang="nav-home">Главная</a>
+        <a href="онас.html" class="nav-link font-semibold" data-lang="nav-about">О нас</a>
+        <a href="услуги.html" class="nav-link font-semibold text-red-500" data-lang="nav-services">Услуги</a>
+        <a href="jadval.html" class="nav-link font-semibold" data-lang="nav-schedule">Расписание</a>
+        <a href="trainers.html" class="nav-link font-semibold" data-lang="nav-trainers">Тренеры</a>
+        <a href="kontakt.html" class="nav-link font-semibold" data-lang="nav-contact">Контакты</a>
+        <a href="user-register.html" class="bg-red-600 text-white px-4 py-2 rounded-full font-bold hover:bg-red-700" data-lang="nav-register">Регистрация</a>
+        <a href="admin.html" class="bg-yellow-600 text-white px-4 py-2 rounded-full font-bold block text-center" data-lang="nav-admin">Админ-панель</a>
+        <!-- Language Button -->
+        <button id="lang-toggle" class="bg-gray-700 text-white px-3 py-2 rounded-full text-xs font-bold hover:bg-gray-600 transition flex items-center gap-1 ml-2">
+          <i class="fas fa-globe"></i> <span id="lang-text">EN</span>
+        </button>
       </nav>
 
+
       <!-- Social (Desktop) -->
-      <div class="hidden md:flex gap-3">
-        <a href="https://www.facebook.com/hospitality__pro" class="text-gray-400 hover:text-blue-500"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://www.instagram.com/hospitality__pro" class="text-gray-400 hover:text-pink-500"><i class="fab fa-instagram"></i></a>
-        <a href="https://t.me/SirojiddinSayfiddinovich" class="text-gray-400 hover:text-cyan-500"><i class="fab fa-telegram-plane"></i></a>
+      <div class="hidden md:flex gap-3">      
+        <a href="tel:+998770009090" class="text-gray-400 hover:text-blue-500 flex items-center gap-2"><i class="fa-solid fa-phone"></i></a>
+        <a href="https://www.instagram.com/husma.fit/#" class="text-gray-400 hover:text-pink-500"><i class="fab fa-instagram"></i></a>
+        <a href="tel:+998770009090" class="text-gray-400 hover:text-blue-500 flex items-center gap-2"><i class="fab fa-telegram-plane"></i></a>
       </div>
 
       <!-- Mobile Button -->
@@ -66,167 +71,171 @@
     <!-- Mobile Menu -->
     <div id="mobile-menu" class="hidden md:hidden bg-gray-800/98 backdrop-blur-md border-t border-gray-700 py-4 px-6 mobile-menu">
       <nav class="flex flex-col gap-3 text-left">
-        <a href="index.html" class="nav-link font-semibold">Bosh sahifa</a>
-        <a href="онас.html" class="nav-link font-semibold">Biz haqimizda</a>
-        <a href="услуги.html" class="nav-link font-semibold text-red-500">Xizmatlar</a>
-        <a href="jadval.html" class="nav-link font-semibold">Jadval</a>
-        <a href="trainers.html" class="nav-link font-semibold">Trener</a>
-        <a href="kontakt.html" class="nav-link font-semibold">Aloqa</a>
-        <a href="user-register.html" class="bg-red-600 text-white px-4 py-2 rounded-full font-bold hover:bg-red-700">Ro‘yxatdan o‘tish</a>
-                        <a href="admin.html" class="bg-yellow-600 text-white px-4 py-2 rounded-full font-bold block text-center">Admin Panel</a>
+        <a href="index.html" class="nav-link font-semibold" data-lang="nav-home">Главная</a>
+        <a href="онас.html" class="nav-link font-semibold" data-lang="nav-about">О нас</a>
+        <a href="услуги.html" class="nav-link font-semibold text-red-500" data-lang="nav-services">Услуги</a>
+        <a href="jadval.html" class="nav-link font-semibold" data-lang="nav-schedule">Расписание</a>
+        <a href="trainers.html" class="nav-link font-semibold" data-lang="nav-trainers">Тренеры</a>
+        <a href="kontakt.html" class="nav-link font-semibold" data-lang="nav-contact">Контакты</a>
+        <a href="user-register.html" class="bg-red-600 text-white px-4 py-2 rounded-full font-bold hover:bg-red-700" data-lang="nav-register">Регистрация</a>
+        <a href="admin.html" class="bg-yellow-600 text-white px-4 py-2 rounded-full font-bold block text-center" data-lang="nav-admin">Админ-панель</a>
+                <!-- Language Button -->
+        <button id="lang-toggle1" class="bg-gray-700 text-white px-3 py-2 rounded-full text-xs font-bold hover:bg-gray-600 transition flex items-center gap-1 ml-2">
+          <i class="fas fa-globe"></i> <span id="lang-text">EN</span>
+        </button>
       </nav>
-      <div class="flex gap-4 mt-4">
-        <a href="#" class="text-gray-400 hover:text-blue-500"><i class="fab fa-facebook-f"></i></a>
-        <a href="#" class="text-gray-400 hover:text-pink-500"><i class="fab fa-instagram"></i></a>
-        <a href="#" class="text-gray-400 hover:text-cyan-500"><i class="fab fa-telegram-plane"></i></a>
+      <div class="flex gap-4 mt-4 justify-center">       
+        <a href="tel:+998770009090" class="text-gray-400 hover:text-blue-500 flex items-center gap-2"><i class="fa-solid fa-phone"></i></a>
+        <a href="https://www.instagram.com/husma.fit/#" class="text-gray-400 hover:text-pink-500"><i class="fab fa-instagram"></i></a>
+        <a href="tel:+998770009090" class="text-gray-400 hover:text-blue-500 flex items-center gap-2"><i class="fab fa-telegram-plane"></i></a>
       </div>
     </div>
   </header>
 
-  <!-- Hero Section (Xizmatlar) -->
+  <!-- Hero Section (Услуги) -->
   <section class="relative flex flex-col items-center justify-center text-center py-24 px-4 mt-16 md:mt-0 bg-gradient-to-b from-gray-800 to-gray-900" data-aos="fade-up">
     <div class="max-w-4xl mx-auto">
-      <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4">
-        Bizning <span class="text-red-600">Xizmatlar</span>
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4" data-lang="hero-title">
+        Наши <span class="text-red-600">Услуги</span>
       </h1>
-      <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-        Har bir maqsad uchun professional dastur. Kuch, chidamlilik, sog‘lomlik – barchasi HusmaFitda.
+      <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto" data-lang="hero-desc">
+        Профессиональные программы для любой цели. Сила, выносливость, здоровье — всё в HusmaFit.
       </p>
       <div class="flex flex-wrap justify-center gap-3 text-sm">
-        <span class="bg-red-600 text-white px-4 py-1.5 rounded-full">50+ mashg‘ulot</span>
-        <span class="bg-gray-700 text-white px-4 py-1.5 rounded-full">Shaxsiy trener</span>
-        <span class="bg-gray-700 text-white px-4 py-1.5 rounded-full">Guruhli darslar</span>
+        <span class="bg-red-600 text-white px-4 py-1.5 rounded-full" data-lang="tag-workouts">50+ тренировок</span>
+        <span class="bg-gray-700 text-white px-4 py-1.5 rounded-full" data-lang="tag-trainer">Персональный тренер</span>
+        <span class="bg-gray-700 text-white px-4 py-1.5 rounded-full" data-lang="tag-group">Групповые занятия</span>
       </div>
     </div>
   </section>
 
-  <!-- Xizmatlar Katalogi -->
+  <!-- Каталог услуг -->
   <section class="py-16 px-4 bg-gray-900">
     <div class="container mx-auto">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-        <!-- 1. Kuch Mashqlari -->
+        <!-- 1. Силовые тренировки -->
         <div class="bg-gray-800 rounded-xl overflow-hidden shadow-lg card-hover transition-all duration-300" data-aos="fade-up">
           <div class="h-48 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
           <div class="p-6">
             <div class="flex items-center justify-between mb-3">
-              <h3 class="text-xl font-bold">Kuch Mashqlari</h3>
+              <h3 class="text-xl font-bold" data-lang="service-strength">Силовые тренировки</h3>
               <i class="fas fa-dumbbell text-2xl text-red-600"></i>
             </div>
-            <p class="text-gray-400 mb-4 text-sm">Shtanga, gantel, simulyatorlar – mushak massasi va kuch uchun.</p>
+            <p class="text-gray-400 mb-4 text-sm" data-lang="strength-desc">Штанги, гантели, тренажёры — для мышечной массы и силы.</p>
             <ul class="text-sm text-gray-300 space-y-2 mb-4">
-              <li>✓ Professional dastur</li>
-              <li>✓ Og‘irliklar 1–100 kg</li>
-              <li>✓ 3 ta zona</li>
+              <li data-lang="strength-1">Профессиональная программа</li>
+              <li data-lang="strength-2">Вес от 1 до 100 кг</li>
+              <li data-lang="strength-3">3 зоны</li>
             </ul>
             <div class="flex justify-between items-center">
-              <span class="text-2xl font-bold text-red-600">50 000 so‘m</span>
-              <a href="./user-register.html" class="bg-red-600 text-white px-4 py-2 rounded-full text-sm hover:bg-red-700 transition">Tanlash</a>
+              <span class="text-2xl font-bold text-red-600" data-lang="price-strength">50 000 сум</span>
+              <a href="./user-register.html" class="bg-red-600 text-white px-4 py-2 rounded-full text-sm hover:bg-red-700 transition" data-lang="btn-choose">Выбрать</a>
             </div>
           </div>
         </div>
 
-        <!-- 2. Kardio -->
+        <!-- 2. Кардио -->
         <div class="bg-gray-800 rounded-xl overflow-hidden shadow-lg card-hover transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
           <div class="h-48 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1518614368383-3bd7ce3a4a3a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
           <div class="p-6">
             <div class="flex items-center justify-between mb-3">
-              <h3 class="text-xl font-bold">Kardio</h3>
+              <h3 class="text-xl font-bold" data-lang="service-cardio">Кардио</h3>
               <i class="fas fa-running text-2xl text-red-600"></i>
             </div>
-            <p class="text-gray-400 mb-4 text-sm">Yugurish yo‘laklari, velosipedlar – yurak va chidamlilik uchun.</p>
+            <p class="text-gray-400 mb-4 text-sm" data-lang="cardio-desc">Беговые дорожки, велотренажёры — для сердца и выносливости.</p>
             <ul class="text-sm text-gray-300 space-y-2 mb-4">
-              <li>✓ 20+ kardio jihoz</li>
-              <li>✓ Puls o‘lchagichlar</li>
-              <li>✓ Interval dasturlar</li>
+              <li data-lang="cardio-1">20+ кардиотренажёров</li>
+              <li data-lang="cardio-2">Пульсометры</li>
+              <li data-lang="cardio-3">Интервальные программы</li>
             </ul>
             <div class="flex justify-between items-center">
-              <span class="text-2xl font-bold text-red-600">40 000 so‘m</span>
-              <a href="./user-register.html" class="bg-red-600 text-white px-4 py-2 rounded-full text-sm hover:bg-red-700 transition">Tanlash</a>
+              <span class="text-2xl font-bold text-red-600" data-lang="price-cardio">40 000 сум</span>
+              <a href="./user-register.html" class="bg-red-600 text-white px-4 py-2 rounded-full text-sm hover:bg-red-700 transition" data-lang="btn-choose">Выбрать</a>
             </div>
           </div>
         </div>
 
-        <!-- 3. Guruhli Darslar -->
+        <!-- 3. Групповые занятия -->
         <div class="bg-gray-800 rounded-xl overflow-hidden shadow-lg card-hover transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
           <div class="h-48 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1549570652-97324981a6fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
           <div class="p-6">
             <div class="flex items-center justify-between mb-3">
-              <h3 class="text-xl font-bold">Guruhli Darslar</h3>
+              <h3 class="text-xl font-bold" data-lang="service-group">Групповые занятия</h3>
               <i class="fas fa-user-friends text-2xl text-red-600"></i>
             </div>
-            <p class="text-gray-400 mb-4 text-sm">Yoga, Zumba, CrossFit – motivatsiya va jamiyat bilan.</p>
+            <p class="text-gray-400 mb-4 text-sm" data-lang="group-desc">Йога, зумба, кроссфит — мотивация и сообщество.</p>
             <ul class="text-sm text-gray-300 space-y-2 mb-4">
-              <li>✓ 15+ dars turi</li>
-              <li>✓ Sertifikatlangan trener</li>
-              <li>✓ Kunlik jadval</li>
+              <li data-lang="group-1">15+ видов занятий</li>
+              <li data-lang="group-2">Сертифицированный тренер</li>
+              <li data-lang="group-3">Ежедневное расписание</li>
             </ul>
             <div class="flex justify-between items-center">
-              <span class="text-2xl font-bold text-red-600">60 000 so‘m</span>
-              <a href="./user-register.html" class="bg-red-600 text-white px-4 py-2 rounded-full text-sm hover:bg-red-700 transition">Tanlash</a>
+              <span class="text-2xl font-bold text-red-600" data-lang="price-group">60 000 сум</span>
+              <a href="./user-register.html" class="bg-red-600 text-white px-4 py-2 rounded-full text-sm hover:bg-red-700 transition" data-lang="btn-choose">Выбрать</a>
             </div>
           </div>
         </div>
 
-        <!-- 4. Shaxsiy Trener -->
+        <!-- 4. Персональный тренер -->
         <div class="bg-gradient-to-br from-red-600 to-red-700 rounded-xl overflow-hidden shadow-lg card-hover transition-all duration-300" data-aos="fade-up" data-aos-delay="300">
           <div class="h-48 bg-cover bg-center opacity-30" style="background-image: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
           <div class="p-6 relative z-10 text-white">
             <div class="flex items-center justify-between mb-3">
-              <h3 class="text-xl font-bold">Shaxsiy Trener</h3>
+              <h3 class="text-xl font-bold" data-lang="service-personal">Персональный тренер</h3>
               <i class="fas fa-chalkboard-teacher text-2xl"></i>
             </div>
-            <p class="mb-4 text-sm">Individual dastur, natija kafolati.</p>
+            <p class="mb-4 text-sm" data-lang="personal-desc">Индивидуальная программа, гарантия результата.</p>
             <ul class="text-sm space-y-2 mb-4">
-              <li>✓ 1:1 mashg‘ulot</li>
-              <li>✓ Oziqlanish rejasi</li>
-              <li>✓ Progress kuzatuv</li>
+              <li data-lang="personal-1">Занятия 1:1</li>
+              <li data-lang="personal-2">План питания</li>
+              <li data-lang="personal-3">Отслеживание прогресса</li>
             </ul>
             <div class="flex justify-between items-center">
-              <span class="text-2xl font-bold">200 000 so‘m / soat</span>
-              <a href="./user-register.html" class="bg-white text-red-600 px-4 py-2 rounded-full text-sm font-bold hover:bg-gray-100 transition">Band qilish</a>
+              <span class="text-2xl font-bold" data-lang="price-personal">200 000 сум / час</span>
+              <a href="./user-register.html" class="bg-white text-red-600 px-4 py-2 rounded-full text-sm font-bold hover:bg-gray-100 transition" data-lang="btn-book">Записаться</a>
             </div>
           </div>
         </div>
 
-        <!-- 5. Yoga & Pilates -->
+        <!-- 5. Йога & Пилатес -->
         <div class="bg-gray-800 rounded-xl overflow-hidden shadow-lg card-hover transition-all duration-300" data-aos="fade-up" data-aos-delay="400">
           <div class="h-48 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
           <div class="p-6">
             <div class="flex items-center justify-between mb-3">
-              <h3 class="text-xl font-bold">Yoga & Pilates</h3>
+              <h3 class="text-xl font-bold" data-lang="service-yoga">Йога & Пилатес</h3>
               <i class="fas fa-spa text-2xl text-red-600"></i>
             </div>
-            <p class="text-gray-400 mb-4 text-sm">Tinchlik, moslashuvchanlik, ruhiy muvozanat.</p>
+            <p class="text-gray-400 mb-4 text-sm" data-lang="yoga-desc">Спокойствие, гибкость, душевное равновесие.</p>
             <ul class="text-sm text-gray-300 space-y-2 mb-4">
-              <li>✓ Hatha, Vinyasa</li>
-              <li>✓ Pilates reformer</li>
-              <li>✓ Meditatsiya</li>
+              <li data-lang="yoga-1">Хатха, Виньяса</li>
+              <li data-lang="yoga-2">Пилатес-реформер</li>
+              <li data-lang="yoga-3">Медитация</li>
             </ul>
             <div class="flex justify-between items-center">
-              <span class="text-2xl font-bold text-red-600">70 000 so‘m</span>
-              <a href="./user-register.html" class="bg-red-600 text-white px-4 py-2 rounded-full text-sm hover:bg-red-700 transition">Tanlash</a>
+              <span class="text-2xl font-bold text-red-600" data-lang="price-yoga">70 000 сум</span>
+              <a href="./user-register.html" class="bg-red-600 text-white px-4 py-2 rounded-full text-sm hover:bg-red-700 transition" data-lang="btn-choose">Выбрать</a>
             </div>
           </div>
         </div>
 
-        <!-- 6. CrossFit -->
+        <!-- 6. Кроссфит -->
         <div class="bg-gray-800 rounded-xl overflow-hidden shadow-lg card-hover transition-all duration-300" data-aos="fade-up" data-aos-delay="500">
           <div class="h-48 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1517838277536-f5f99be715b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
           <div class="p-6">
             <div class="flex items-center justify-between mb-3">
-              <h3 class="text-xl font-bold">CrossFit</h3>
+              <h3 class="text-xl font-bold" data-lang="service-crossfit">Кроссфит</h3>
               <i class="fas fa-fire text-2xl text-red-600"></i>
             </div>
-            <p class="text-gray-400 mb-4 text-sm">Funksional mashqlar, yuqori intensivlik.</p>
+            <p class="text-gray-400 mb-4 text-sm" data-lang="crossfit-desc">Функциональные упражнения, высокая интенсивность.</p>
             <ul class="text-sm text-gray-300 space-y-2 mb-4">
-              <li>✓ WOD kunlik</li>
-              <li>✓ Box jihozlari</li>
-              <li>✓ Musobaqalar</li>
+              <li data-lang="crossfit-1">WOD ежедневно</li>
+              <li data-lang="crossfit-2">Оборудование бокса</li>
+              <li data-lang="crossfit-3">Соревнования</li>
             </ul>
             <div class="flex justify-between items-center">
-              <span class="text-2xl font-bold text-red-600">80 000 so‘m</span>
-              <a href="./user-register.html" class="bg-red-600 text-white px-4 py-2 rounded-full text-sm hover:bg-red-700 transition">Tanlash</a>
+              <span class="text-2xl font-bold text-red-600" data-lang="price-crossfit">80 000 сум</span>
+              <a href="./user-register.html" class="bg-red-600 text-white px-4 py-2 rounded-full text-sm hover:bg-red-700 transition" data-lang="btn-choose">Выбрать</a>
             </div>
           </div>
         </div>
@@ -235,50 +244,50 @@
     </div>
   </section>
 
-  <!-- Abonementlar -->
+  <!-- Абонементы -->
   <section class="py-16 px-4 bg-gray-800">
     <div class="container mx-auto text-center">
-      <h2 class="text-3xl md:text-4xl font-bold mb-4" data-aos="fade-up">Abonementlar</h2>
-      <p class="text-gray-400 mb-12 max-w-xl mx-auto" data-aos="fade-up" data-aos-delay="100">Har bir byudjetga mos tanlov</p>
+      <h2 class="text-3xl md:text-4xl font-bold mb-4" data-aos="fade-up" data-lang="subs-title">Абонементы</h2>
+      <p class="text-gray-400 mb-12 max-w-xl mx-auto" data-aos="fade-up" data-aos-delay="100" data-lang="subs-desc">Подходит для любого бюджета</p>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto" data-aos="fade-up" data-aos-delay="200">
-        <!-- 1 kun -->
+        <!-- 1 день -->
         <div class="bg-gray-900 p-6 rounded-xl border border-gray-700 hover:border-red-600 transition">
-          <h3 class="text-xl font-bold mb-2">1 kun</h3>
-          <p class="text-3xl font-bold text-red-600 mb-4">50 000 so‘m</p>
+          <h3 class="text-xl font-bold mb-2" data-lang="sub-day">1 день</h3>
+          <p class="text-3xl font-bold text-red-600 mb-4" data-lang="price-day">50 000 сум</p>
           <ul class="text-sm text-gray-400 space-y-2 mb-6 text-left mx-auto max-w-xs">
-            <li>✓ Barcha zonalarga kirish</li>
-            <li>✓ Suv va shkaf</li>
-            <li>✗ Shaxsiy trener</li>
+            <li data-lang="day-1">Доступ ко всем зонам</li>
+            <li data-lang="day-2">Вода и шкафчик</li>
+            <li data-lang="day-3">Персональный тренер</li>
           </ul>
-          <a href="#" class="block bg-gray-700 text-white py-2.5 rounded-full text-sm hover:bg-gray-600 transition">Sotib olish</a>
+          <a href="#" class="block bg-gray-700 text-white py-2.5 rounded-full text-sm hover:bg-gray-600 transition" data-lang="btn-buy">Купить</a>
         </div>
 
-        <!-- 1 oy (Eng mashhur) -->
+        <!-- 1 месяц (Самый популярный) -->
         <div class="bg-gradient-to-b from-red-600 to-red-700 p-6 rounded-xl text-white shadow-2xl transform scale-105">
           <div class="flex items-center justify-center mb-2">
-            <span class="bg-white text-red-600 text-xs px-3 py-1 rounded-full font-bold">ENG MASHHUR</span>
+            <span class="bg-white text-red-600 text-xs px-3 py-1 rounded-full font-bold" data-lang="popular-tag">САМЫЙ ПОПУЛЯРНЫЙ</span>
           </div>
-          <h3 class="text-xl font-bold mb-2">1 oy</h3>
-          <p class="text-3xl font-bold mb-4">450 000 so‘m</p>
+          <h3 class="text-xl font-bold mb-2" data-lang="sub-month">1 месяц</h3>
+          <p class="text-3xl font-bold mb-4" data-lang="price-month">450 000 сум</p>
           <ul class="text-sm space-y-2 mb-6 text-left mx-auto max-w-xs">
-            <li>✓ Cheksiz kirish</li>
-            <li>✓ Guruhli darslar</li>
-            <li>✓ 1 bepul shaxsiy dars</li>
+            <li data-lang="month-1">Безлимитный доступ</li>
+            <li data-lang="month-2">Групповые занятия</li>
+            <li data-lang="month-3">1 бесплатное занятие с тренером</li>
           </ul>
-          <a href="#" class="block bg-white text-red-600 py-2.5 rounded-full font-bold text-sm hover:bg-gray-100 transition">Sotib olish</a>
+          <a href="#" class="block bg-white text-red-600 py-2.5 rounded-full font-bold text-sm hover:bg-gray-100 transition" data-lang="btn-buy">Купить</a>
         </div>
 
-        <!-- 1 yil -->
+        <!-- 1 год -->
         <div class="bg-gray-900 p-6 rounded-xl border border-gray-700 hover:border-red-600 transition">
-          <h3 class="text-xl font-bold mb-2">1 yil</h3>
-          <p class="text-3xl font-bold text-red-600 mb-4">4 500 000 so‘m</p>
+          <h3 class="text-xl font-bold mb-2" data-lang="sub-year">1 год</h3>
+          <p class="text-3xl font-bold text-red-600 mb-4" data-lang="price-year">4 500 000 сум</p>
           <ul class="text-sm text-gray-400 space-y-2 mb-6 text-left mx-auto max-w-xs">
-            <li>✓ 12 oy cheksiz</li>
-            <li>✓ 5 bepul shaxsiy dars</li>
-            <li>✓ Do‘stga sovg‘a</li>
+            <li data-lang="year-1">12 месяцев безлимит</li>
+            <li data-lang="year-2">5 бесплатных занятий с тренером</li>
+            <li data-lang="year-3">Подарок другу</li>
           </ul>
-          <a href="#" class="block bg-gray-700 text-white py-2.5 rounded-full text-sm hover:bg-gray-600 transition">Sotib olish</a>
+          <a href="#" class="block bg-gray-700 text-white py-2.5 rounded-full text-sm hover:bg-gray-600 transition" data-lang="btn-buy">Купить</a>
         </div>
       </div>
     </div>
@@ -287,10 +296,10 @@
   <!-- CTA -->
   <section class="py-16 px-4 bg-red-600">
     <div class="container mx-auto text-center">
-      <h2 class="text-3xl md:text-4xl font-bold mb-4" data-aos="fade-up">Birinchi mashg‘ulot – bepul!</h2>
-      <p class="text-lg mb-8 max-w-xl mx-auto" data-aos="fade-up" data-aos-delay="100">Ro‘yxatdan o‘ting va HusmaFit sifatini sinab ko‘ring.</p>
-      <a href="./user-register.html" class="bg-white text-red-600 font-bold px-8 py-3 rounded-full hover:bg-gray-100 transition text-lg" data-aos="fade-up" data-aos-delay="200">
-        Bepul sinov darsi
+      <h2 class="text-3xl md:text-4xl font-bold mb-4" data-aos="fade-up" data-lang="cta-title">Первая тренировка — бесплатно!</h2>
+      <p class="text-lg mb-8 max-w-xl mx-auto" data-aos="fade-up" data-aos-delay="100" data-lang="cta-desc">Зарегистрируйтесь и попробуйте качество HusmaFit.</p>
+      <a href="./user-register.html" class="bg-white text-red-600 font-bold px-8 py-3 rounded-full hover:bg-gray-100 transition text-lg" data-aos="fade-up" data-aos-delay="200" data-lang="cta-btn">
+        Бесплатный пробный урок
       </a>
     </div>
   </section>
@@ -298,11 +307,10 @@
   <!-- Footer -->
   <footer class="bg-gray-900 py-8 px-4 border-t border-gray-800">
     <div class="container mx-auto text-center text-sm text-gray-400">
-      <p class="mb-3">&copy; 2025 <span class="text-red-600">HusmaFit</span>. Barcha huquqlar himoyalangan.</p>
-      <div class="flex justify-center gap-6 mb-3">
-        <a href="#" class="hover:text-white transition"><i class="fab fa-facebook-f text-lg"></i></a>
-        <a href="#" class="hover:text-white transition"><i class="fab fa-instagram text-lg"></i></a>
-        <a href="#" class="hover:text-white transition"><i class="fab fa-telegram-plane text-lg"></i></a>
+      <p class="mb-3" data-lang="footer-copy">&copy; 2025 <span class="text-red-600">HusmaFit</span>. Все права защищены.</p>
+      <div class="flex justify-center gap-6 mb-3">        <a href="tel:+998770009090" class="text-gray-400 hover:text-blue-500 flex items-center gap-2"><i class="fa-solid fa-phone"></i></a>
+        <a href="https://www.instagram.com/husma.fit/#" class="text-gray-400 hover:text-pink-500"><i class="fab fa-instagram"></i></a>
+        <a href="tel:+998770009090" class="text-gray-400 hover:text-blue-500 flex items-center gap-2"><i class="fab fa-telegram-plane"></i></a>
       </div>
     </div>
   </footer>
@@ -311,6 +319,157 @@
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init({ duration: 800, once: true });
+  </script>
+
+  <!-- TIL O‘ZGARTIRISH -->
+  <script>
+    const translations = {
+      ru: {
+        // Navigation
+        "nav-home": "Главная", "nav-about": "О нас", "nav-services": "Услуги", "nav-schedule": "Расписание",
+        "nav-trainers": "Тренеры", "nav-contact": "Контакты", "nav-register": "Регистрация", "nav-admin": "Админ-панель",
+
+        // Hero
+        "hero-title": "Наши <span class='text-red-600'>Услуги</span>",
+        "hero-desc": "Профессиональные программы для любой цели. Сила, выносливость, здоровье — всё в HusmaFit.",
+        "tag-workouts": "50+ тренировок", "tag-trainer": "Персональный тренер", "tag-group": "Групповые занятия",
+
+        // Services
+        "service-strength": "Силовые тренировки", "strength-desc": "Штанги, гантели, тренажёры — для мышечной массы и силы.",
+        "strength-1": "Профессиональная программа", "strength-2": "Вес от 1 до 100 кг", "strength-3": "3 зоны",
+        "price-strength": "50 000 сум", "btn-choose": "Выбрать",
+
+        "service-cardio": "Кардио", "cardio-desc": "Беговые дорожки, велотренажёры — для сердца и выносливости.",
+        "cardio-1": "20+ кардиотренажёров", "cardio-2": "Пульсометры", "cardio-3": "Интервальные программы",
+        "price-cardio": "40 000 сум",
+
+        "service-group": "Групповые занятия", "group-desc": "Йога, зумба, кроссфит — мотивация и сообщество.",
+        "group-1": "15+ видов занятий", "group-2": "Сертифицированный тренер", "group-3": "Ежедневное расписание",
+        "price-group": "60 000 сум",
+
+        "service-personal": "Персональный тренер", "personal-desc": "Индивидуальная программа, гарантия результата.",
+        "personal-1": "Занятия 1:1", "personal-2": "План питания", "personal-3": "Отслеживание прогресса",
+        "price-personal": "200 000 сум / час", "btn-book": "Записаться",
+
+        "service-yoga": "Йога & Пилатес", "yoga-desc": "Спокойствие, гибкость, душевное равновесие.",
+        "yoga-1": "Хатха, Виньяса", "yoga-2": "Пилатес-реформер", "yoga-3": "Медитация",
+        "price-yoga": "70 000 сум",
+
+        "service-crossfit": "Кроссфит", "crossfit-desc": "Функциональные упражнения, высокая интенсивность.",
+        "crossfit-1": "WOD ежедневно", "crossfit-2": "Оборудование бокса", "crossfit-3": "Соревнования",
+        "price-crossfit": "80 000 сум",
+
+        // Subscriptions
+        "subs-title": "Абонементы", "subs-desc": "Подходит для любого бюджета",
+        "sub-day": "1 день", "price-day": "50 000 сум",
+        "day-1": "Доступ ко всем зонам", "day-2": "Вода и шкафчик", "day-3": "Персональный тренер",
+        "popular-tag": "САМЫЙ ПОПУЛЯРНЫЙ",
+        "sub-month": "1 месяц", "price-month": "450 000 сум",
+        "month-1": "Безлимитный доступ", "month-2": "Групповые занятия", "month-3": "1 бесплатное занятие с тренером",
+        "sub-year": "1 год", "price-year": "4 500 000 сум",
+        "year-1": "12 месяцев безлимит", "year-2": "5 бесплатных занятий с тренером", "year-3": "Подарок другу",
+        "btn-buy": "Купить",
+
+        // CTA
+        "cta-title": "Первая тренировка — бесплатно!",
+        "cta-desc": "Зарегистрируйтесь и попробуйте качество HusmaFit.",
+        "cta-btn": "Бесплатный пробный урок",
+
+        // Footer
+        "footer-copy": "&copy; 2025 <span class='text-red-600'>HusmaFit</span>. Все права защищены.",
+
+        "lang-text": "EN"
+      },
+      en: {
+        // Navigation
+        "nav-home": "Home", "nav-about": "About", "nav-services": "Services", "nav-schedule": "Schedule",
+        "nav-trainers": "Trainers", "nav-contact": "Contact", "nav-register": "Register", "nav-admin": "Admin Panel",
+
+        // Hero
+        "hero-title": "Our <span class='text-red-600'>Services</span>",
+        "hero-desc": "Professional programs for any goal. Strength, endurance, health — all at HusmaFit.",
+        "tag-workouts": "50+ Workouts", "tag-trainer": "Personal Trainer", "tag-group": "Group Classes",
+
+        // Services
+        "service-strength": "Strength Training", "strength-desc": "Barbells, dumbbells, machines — for muscle mass and strength.",
+        "strength-1": "Professional program", "strength-2": "Weights from 1 to 100 kg", "strength-3": "3 zones",
+        "price-strength": "50,000 UZS", "btn-choose": "Choose",
+
+        "service-cardio": "Cardio", "cardio-desc": "Treadmills, bikes — for heart and endurance.",
+        "cardio-1": "20+ cardio machines", "cardio-2": "Heart rate monitors", "cardio-3": "Interval programs",
+        "price-cardio": "40,000 UZS",
+
+        "service-group": "Group Classes", "group-desc": "Yoga, Zumba, CrossFit — motivation and community.",
+        "group-1": "15+ class types", "group-2": "Certified trainer", "group-3": "Daily schedule",
+        "price-group": "60,000 UZS",
+
+        "service-personal": "Personal Trainer", "personal-desc": "Individual program, guaranteed results.",
+        "personal-1": "1:1 sessions", "personal-2": "Meal plan", "personal-3": "Progress tracking",
+        "price-personal": "200,000 UZS / hour", "btn-book": "Book Now",
+
+        "service-yoga": "Yoga & Pilates", "yoga-desc": "Calmness, flexibility, inner peace.",
+        "yoga-1": "Hatha, Vinyasa", "yoga-2": "Pilates reformer", "yoga-3": "Meditation",
+        "price-yoga": "70,000 UZS",
+
+        "service-crossfit": "CrossFit", "crossfit-desc": "Functional exercises, high intensity.",
+        "crossfit-1": "Daily WOD", "crossfit-2": "Box equipment", "crossfit-3": "Competitions",
+        "price-crossfit": "80,000 UZS",
+
+        // Subscriptions
+        "subs-title": "Subscriptions", "subs-desc": "Fits any budget",
+        "sub-day": "1 Day", "price-day": "50,000 UZS",
+        "day-1": "Access to all zones", "day-2": "Water & locker", "day-3": "No personal trainer",
+        "popular-tag": "MOST POPULAR",
+        "sub-month": "1 Month", "price-month": "450,000 UZS",
+        "month-1": "Unlimited access", "month-2": "Group classes", "month-3": "1 free trainer session",
+        "sub-year": "1 Year", "price-year": "4,500,000 UZS",
+        "year-1": "12 months unlimited", "year-2": "5 free trainer sessions", "year-3": "Gift to a friend",
+        "btn-buy": "Buy",
+
+        // CTA
+        "cta-title": "First workout — FREE!",
+        "cta-desc": "Register and experience HusmaFit quality.",
+        "cta-btn": "Free Trial Session",
+
+        // Footer
+        "footer-copy": "&copy; 2025 <span class='text-red-600'>HusmaFit</span>. All rights reserved.",
+
+        "lang-text": "RU"
+      }
+    };
+
+    let currentLang = localStorage.getItem('lang') || 'ru';
+
+    function toggleLanguage() {
+      currentLang = currentLang === 'ru' ? 'en' : 'ru';
+      localStorage.setItem('lang', currentLang);
+      document.documentElement.lang = currentLang;
+      updateTexts();
+      document.getElementById('lang-text').textContent = translations[currentLang]['lang-text'];
+    }
+
+    function updateTexts() {
+      const t = translations[currentLang];
+      Object.keys(t).forEach(key => {
+        document.querySelectorAll(`[data-lang="${key}"]`).forEach(el => {
+          el.innerHTML = t[key];
+        });
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('lang-toggle').addEventListener('click', toggleLanguage);
+      document.documentElement.lang = currentLang;
+      updateTexts();
+      document.getElementById('lang-text').textContent = translations[currentLang]['lang-text'];
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('lang-toggle1').addEventListener('click', toggleLanguage);
+      document.documentElement.lang = currentLang;
+      updateTexts();
+      document.getElementById('lang-text').textContent = translations[currentLang]['lang-text'];
+    });
   </script>
 </body>
 </html>
