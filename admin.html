@@ -1,12 +1,19 @@
 <!DOCTYPE html>
-<html lang="uz">
+<html lang="ru">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Admin | HusmaFit</title>
+  <title data-lang="title">Админ | HusmaFit</title>
+
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
   <style>
     body { font-family: 'Poppins', sans-serif; background: #111827; color: white; }
     .table { @apply w-full text-left border-collapse; }
@@ -16,24 +23,27 @@
     .modal { @apply fixed inset-0 bg-black/80 flex items-center justify-center z-50; }
     .modal-content { @apply bg-gray-800 p-8 rounded-xl max-w-sm w-full mx-4 shadow-2xl; }
     .logout-btn { @apply bg-red-600 text-white px-4 py-2 rounded-lg font-bold hover:bg-red-700 transition flex items-center gap-2; }
+    .nav-link { @apply relative transition-all duration-300 hover:text-red-500; }
+    .nav-link::after { content: ''; @apply absolute bottom-0 left-0 w-0 h-0.5 bg-red-600 transition-all duration-300; }
+    .nav-link:hover::after { @apply w-full; }
   </style>
 </head>
-<body class="bg-gray-900 text-white min-h-screen flex justify-center items-center">
+<body class="bg-gray-900 text-white min-h-screen">
 
-  <!-- PAROL OYNASI -->
+  <!-- LOGIN MODAL -->
   <div id="login-modal" class="modal flex flex-col justify-center items-center">
     <div class="modal-content flex flex-col justify-center items-center">
       <div class="text-center mb-6">
         <i class="fas fa-shield-alt text-5xl text-red-600 mb-3"></i>
-        <h2 class="text-2xl font-bold">Admin Panel</h2>
-        <p class="text-sm text-gray-400 mt-1">Parolni kiriting</p>
+        <h2 class="text-2xl font-bold" data-lang="login-title">Панель администратора</h2>
+        <p class="text-sm text-gray-400 mt-1" data-lang="login-subtitle">Введите пароль</p>
       </div>
-      <input type="password" id="password" placeholder="Parol" class="w-full px-4 py-3 bg-gray-700 rounded-lg text-white mb-4 focus:ring-2 focus:ring-red-600 outline-none" />
-      <button onclick="login()" class="w-full bg-green-600 text-white py-3 rounded-lg font-bold hover:bg-green-700 transition mb-2">
-        Kirish
+      <input type="password" id="password" placeholder="Пароль" class="w-full px-4 py-3 bg-gray-700 rounded-lg text-white mb-4 focus:ring-2 focus:ring-red-600 outline-none" data-lang-placeholder="password-placeholder" />
+      <button onclick="login()" class="w-full bg-green-600 text-white py-3 rounded-lg font-bold hover:bg-green-700 transition mb-2" data-lang="btn-login">
+        Войти
       </button>
       <button onclick="logoutToHome()" class="w-full logout-btn">
-        <i class="fas fa-sign-out-alt"></i> Bosh sahifaga qaytish
+        <i class="fas fa-sign-out-alt"></i> <span data-lang="btn-back">Вернуться на главную</span>
       </button>
     </div>
   </div>
@@ -41,56 +51,194 @@
   <!-- ADMIN PANEL -->
   <div id="admin-panel" class="hidden">
     <!-- Header -->
-    <header class="bg-gray-800 py-4 px-6 shadow-lg border-b border-gray-700 fixed top-0 left-0 w-full z-40">
+    <header class="bg-gray-800/95 backdrop-blur-sm py-3 px-4 md:px-8 shadow-xl fixed top-0 left-0 w-full z-50 border-b border-gray-700">
       <div class="container mx-auto flex justify-between items-center">
-        <h1 class="text-2xl font-bold">Husma<span class="text-red-600">Fit</span> Admin</h1>
-        <button onclick="logout()" class="logout-btn">
-          <i class="fas fa-sign-out-alt"></i> Chiqish
+        <!-- Logo -->
+        <div class="flex items-center gap-2">
+          <img src="./446215302_1156955372010908_2017285007514614506_n.jpg" alt="Логотип HusmaFit" class="w-11 h-11 rounded-full object-cover shadow-md hover:scale-110 transition" loading="lazy" />
+          <h1 class="text-xl md:text-2xl font-extrabold">Husma<span class="text-red-600">Fit</span></h1>
+        </div>
+
+        <!-- Desktop Nav -->
+        <nav class="hidden md:flex items-center gap-5 text-sm">
+          <a href="index.html" class="nav-link font-semibold" data-lang="nav-home">Главная</a>
+          <a href="онас.html" class="nav-link font-semibold" data-lang="nav-about">О нас</a>
+          <a href="услуги.html" class="nav-link font-semibold" data-lang="nav-services">Услуги</a>
+          <a href="jadval.html" class="nav-link font-semibold" data-lang="nav-schedule">Расписание</a>
+          <a href="trainers.html" class="nav-link font-semibold" data-lang="nav-trainers">Тренеры</a>
+          <a href="kontakt.html" class="nav-link font-semibold" data-lang="nav-contact">Контакты</a>
+          <a href="user-register.html" class="bg-red-600 text-white px-4 py-2 rounded-full font-bold hover:bg-red-700" data-lang="nav-register">Регистрация</a>
+          <a href="admin.html" class="bg-yellow-600 text-red-500 px-4 py-2 rounded-full font-bold block text-center" data-lang="nav-admin">Админ-панель</a>
+
+          <!-- Language -->
+          <button id="lang-toggle" class="bg-gray-700 text-white px-3 py-2 rounded-full text-xs font-bold hover:bg-gray-600 transition flex items-center gap-1">
+            <i class="fas fa-globe"></i> <span id="lang-text">EN</span>
+          </button>
+        </nav>
+
+        <!-- Logout -->
+        <button onclick="logout()" class="logout-btn hidden md:flex">
+          <i class="fas fa-sign-out-alt"></i> <span data-lang="btn-logout">Выйти</span>
+        </button>
+
+        <!-- Mobile Menu Button -->
+        <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="md:hidden">
+          <i class="fas fa-bars text-lg"></i>
+        </button>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="hidden md:hidden bg-gray-800/98 backdrop-blur-md border-t border-gray-700 py-4 px-6">
+        <nav class="flex flex-col gap-3 text-left">
+          <a href="index.html" class="nav-link font-semibold" data-lang="nav-home">Главная</a>
+          <a href="онас.html" class="nav-link font-semibold" data-lang="nav-about">О нас</a>
+          <a href="услуги.html" class="nav-link font-semibold" data-lang="nav-services">Услуги</a>
+          <a href="jadval.html" class="nav-link font-semibold" data-lang="nav-schedule">Расписание</a>
+          <a href="trainers.html" class="nav-link font-semibold" data-lang="nav-trainers">Тренеры</a>
+          <a href="kontakt.html" class="nav-link font-semibold" data-lang="nav-contact">Контакты</a>
+          <a href="user-register.html" class="bg-red-600 text-white px-4 py-2 rounded-full font-bold hover:bg-red-700" data-lang="nav-register">Регистрация</a>
+          <a href="admin.html" class="bg-yellow-600 text-white px-4 py-2 rounded-full font-bold block text-center" data-lang="nav-admin">Админ-панель</a>
+
+          <div class="flex justify-center mb-4">
+            <button id="lang-toggle-mobile" class="bg-gray-700 text-white px-3 py-2 rounded-full text-xs font-bold hover:bg-gray-600 transition flex items-center gap-1">
+              <i class="fas fa-globe"></i> <span id="lang-text-mobile">EN</span>
+            </button>
+          </div>
+        </nav>
+        <button onclick="logout()" class="mt-4 w-full logout-btn">
+          <i class="fas fa-sign-out-alt"></i> <span data-lang="btn-logout">Выйти</span>
         </button>
       </div>
     </header>
 
-    <!-- Kontent -->
+    <!-- Content -->
     <section class="pt-24 pb-10 px-4">
       <div class="container mx-auto">
         <div class="bg-gray-800 rounded-xl shadow-xl p-6">
           <h2 class="text-2xl font-bold mb-6 flex items-center gap-2">
-            <i class="fas fa-users text-green-500"></i> Ro‘yxatdan o‘tganlar
+            <i class="fas fa-users text-green-500"></i> <span data-lang="section-title">Зарегистрированные</span>
           </h2>
 
-          <!-- Qidiruv -->
-          <input type="text" id="search" placeholder="Ism yoki telefon bo‘yicha qidirish..." class="w-full mb-4 px-4 py-2 bg-gray-700 rounded-lg text-white focus:ring-2 focus:ring-red-600 outline-none">
+          <!-- Search + Clear Button -->
+          <div class="flex flex-col md:flex-row justify-between items-center mb-4 gap-3">
+            <input type="text" id="search" placeholder="Поиск по имени или телефону..." class="w-full md:w-64 px-4 py-2 bg-gray-700 rounded-lg text-white focus:ring-2 focus:ring-red-600 outline-none" data-lang-placeholder="search-placeholder">
+
+            <button onclick="clearList()" class="bg-red-600 text-white px-4 py-2 rounded-lg font-bold hover:bg-red-700 transition flex items-center gap-2">
+              <i class="fas fa-trash"></i> <span data-lang="btn-clear">Очистить всё</span>
+            </button>
+          </div>
 
           <div class="overflow-x-auto">
             <table class="table">
               <thead>
                 <tr>
-                  <th class="th">№</th>
-                  <th class="th">Ism</th>
-                  <th class="th">Telefon</th>
-                  <th class="th">Abonement</th>
-                  <th class="th">Sana</th>
-                  <th class="th">Holati</th>
-                  <th class="th">Amal</th>
+                  <th class="th" data-lang="th-number">№</th>
+                  <th class="th" data-lang="th-name">Имя</th>
+                  <th class="th" data-lang="th-phone">Телефон</th>
+                  <th class="th" data-lang="th-plan">Абонемент</th>
+                  <th class="th" data-lang="th-date">Дата</th>
+                  <th class="th" data-lang="th-status">Статус</th>
+                  <th class="th" data-lang="th-action">Действие</th>
                 </tr>
               </thead>
               <tbody id="registrations-table"></tbody>
             </table>
           </div>
 
-          <div id="empty" class="text-center py-10 text-gray-500">
+          <div id="empty" class="text-center py-10 text-gray-500 hidden">
             <i class="fas fa-inbox text-4xl mb-3"></i>
-            <p>Hozircha hech kim ro‘yxatdan o‘tmagan</p>
+            <p data-lang="empty-message">Пока никто не зарегистрировался</p>
           </div>
         </div>
       </div>
     </section>
   </div>
 
+  <!-- Translation + Logic -->
   <script>
     const CORRECT_PASSWORD = "husmafit2025";
 
-    // Kirish
+    const translations = {
+      ru: {
+        "title": "Админ | HusmaFit",
+        "login-title": "Панель администратора",
+        "login-subtitle": "Введите пароль",
+        "password-placeholder": "Пароль",
+        "btn-login": "Войти",
+        "btn-back": "Вернуться на главную",
+        "nav-home": "Главная", "nav-about": "О нас", "nav-services": "Услуги", "nav-schedule": "Расписание",
+        "nav-trainers": "Тренеры", "nav-contact": "Контакты", "nav-register": "Регистрация", "nav-admin": "Админ-панель",
+        "section-title": "Зарегистрированные",
+        "search-placeholder": "Поиск по имени или телефону...",
+        "th-number": "№", "th-name": "Имя", "th-phone": "Телефон", "th-plan": "Абонемент",
+        "th-date": "Дата", "th-status": "Статус", "th-action": "Действие",
+        "empty-message": "Пока никто не зарегистрировался",
+        "btn-logout": "Выйти",
+        "status-pending": "Ожидает",
+        "status-paid": "Оплачено при приходе",
+        "btn-pay": "Оплатить при приходе",
+        "paid-info": "Оплачено",
+        "alert-wrong-pass": "Неверный пароль!",
+        "confirm-clear": "Вы уверены, что хотите удалить всех зарегистрированных?",
+        "alert-cleared": "Список успешно очищен!",
+        "btn-clear": "Очистить всё",
+        "lang-text": "EN"
+      },
+      en: {
+        "title": "Admin | HusmaFit",
+        "login-title": "Admin Panel",
+        "login-subtitle": "Enter password",
+        "password-placeholder": "Password",
+        "btn-login": "Login",
+        "btn-back": "Back to Home",
+        "nav-home": "Home", "nav-about": "About", "nav-services": "Services", "nav-schedule": "Schedule",
+        "nav-trainers": "Trainers", "nav-contact": "Contact", "nav-register": "Register", "nav-admin": "Admin Panel",
+        "section-title": "Registered Users",
+        "search-placeholder": "Search by name or phone...",
+        "th-number": "No.", "th-name": "Name", "th-phone": "Phone", "th-plan": "Plan",
+        "th-date": "Date", "th-status": "Status", "th-action": "Action",
+        "empty-message": "No one has registered yet",
+        "btn-logout": "Logout",
+        "status-pending": "Pending",
+        "status-paid": "Paid on arrival",
+        "btn-pay": "Mark as Paid",
+        "paid-info": "Paid",
+        "alert-wrong-pass": "Wrong password!",
+        "confirm-clear": "Are you sure you want to delete all registered users?",
+        "alert-cleared": "List cleared successfully!",
+        "btn-clear": "Clear All",
+        "lang-text": "RU"
+      }
+    };
+
+    let currentLang = localStorage.getItem('lang') || 'ru';
+
+    // Language Toggle
+    function toggleLanguage() {
+      currentLang = currentLang === 'ru' ? 'en' : 'ru';
+      localStorage.setItem('lang', currentLang);
+      document.documentElement.lang = currentLang;
+      updateTexts();
+      document.getElementById('lang-text').textContent = translations[currentLang]['lang-text'];
+      const mobile = document.getElementById('lang-text-mobile');
+      if (mobile) mobile.textContent = translations[currentLang]['lang-text'];
+    }
+
+    function updateTexts() {
+      const t = translations[currentLang];
+      document.querySelector('title').textContent = t["title"];
+      document.querySelectorAll('[data-lang]').forEach(el => {
+        const key = el.getAttribute('data-lang');
+        if (t[key]) el.innerHTML = t[key];
+      });
+      document.querySelectorAll('[data-lang-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-lang-placeholder');
+        if (t[key]) el.placeholder = t[key];
+      });
+      loadRegistrations();
+    }
+
+    // Login / Logout
     function login() {
       const input = document.getElementById('password').value.trim();
       const modal = document.getElementById('login-modal');
@@ -100,31 +248,32 @@
         document.getElementById('admin-panel').classList.remove('hidden');
         loadRegistrations();
       } else {
-        alert('Noto‘g‘ri parol!');
+        alert(translations[currentLang]["alert-wrong-pass"]);
       }
     }
-function logout() {
-  document.getElementById('admin-panel').classList.add('hidden');
-  const modal = document.getElementById('login-modal');
-  modal.classList.remove('hidden');
-  modal.classList.add('flex'); // qo‘shildi
-  document.getElementById('password').value = '';
-}
+
+    function logout() {
+      document.getElementById('admin-panel').classList.add('hidden');
+      const modal = document.getElementById('login-modal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      document.getElementById('password').value = '';
+    }
 
     function logoutToHome() {
       window.location.href = "index.html";
     }
 
-    // Ro‘yxatni yuklash
+    // Load Registrations
     function loadRegistrations() {
       const registrations = JSON.parse(localStorage.getItem('registrations') || '[]');
       const table = document.getElementById('registrations-table');
       const empty = document.getElementById('empty');
       const search = document.getElementById('search').value.toLowerCase();
+      const t = translations[currentLang];
 
-      const filtered = registrations.filter(reg => 
-        reg.name.toLowerCase().includes(search) || 
-        reg.phone.includes(search)
+      const filtered = registrations.filter(r =>
+        r.name.toLowerCase().includes(search) || r.phone.includes(search)
       );
 
       if (filtered.length === 0) {
@@ -136,64 +285,84 @@ function logout() {
       empty.classList.add('hidden');
       table.innerHTML = '';
 
-      filtered.forEach((reg, index) => {
-        const planText = reg.plan === '50000' ? '1 kun – 50 000 so‘m' :
-                        reg.plan === '450000' ? '1 oy – 450 000 so‘m' :
-                        '1 yil – 4 500 000 so‘m';
+      filtered.forEach((reg, i) => {
+        const idx = registrations.indexOf(reg);
+        const planText = reg.plan === '50000' ? (currentLang === 'ru' ? '1 день – 50 000 сум' : '1 Day – 50,000 UZS') :
+                         reg.plan === '450000' ? (currentLang === 'ru' ? '1 месяц – 450 000 сум' : '1 Month – 450,000 UZS') :
+                         (currentLang === 'ru' ? '1 год – 4 500 000 сум' : '1 Year – 4,500,000 UZS');
 
         const badgeColor = reg.plan === '50000' ? 'bg-blue-600' :
-                          reg.plan === '450000' ? 'bg-yellow-600' :
-                          'bg-green-600';
+                           reg.plan === '450000' ? 'bg-yellow-600' : 'bg-green-600';
 
-        let statusBadge = '<span class="badge bg-orange-600">Kutilmoqda</span>';
-        let actionButton = `<button onclick="markAsPaid(${registrations.indexOf(reg)})" class="text-xs bg-green-600 text-white px-3 py-1 rounded hover:bg-green-700">Kelganda to‘lanadi</button>`;
+        const statusBadge = reg.paid
+          ? `<span class="badge bg-green-600">${t["status-paid"]}</span>`
+          : `<span class="badge bg-orange-600">${t["status-pending"]}</span>`;
 
-        if (reg.paid) {
-          statusBadge = '<span class="badge bg-green-600">Kelganda to‘landi</span>';
-          actionButton = '<span class="text-xs text-green-400">To‘landi</span>';
-        }
+        const action = reg.paid
+          ? `<span class="text-xs text-green-400">${t["paid-info"]}</span>`
+          : `<button onclick="markAsPaid(${idx})" class="text-xs bg-green-600 text-white px-3 py-1 rounded hover:bg-green-700">${t["btn-pay"]}</button>`;
 
         const row = document.createElement('tr');
         row.className = 'hover:bg-gray-700 transition';
         row.innerHTML = `
-          <td class="td">${registrations.indexOf(reg) + 1}</td>
+          <td class="td">${idx + 1}</td>
           <td class="td font-semibold">${reg.name}</td>
-          <td class="td">
-            <a href="tel:${reg.phone}" class="text-green-400 hover:underline">${reg.phone}</a>
-          </td>
-          <td class="td">
-            <span class="badge ${badgeColor}">${planText}</span>
-          </td>
+          <td class="td"><a href="tel:${reg.phone}" class="text-green-400 hover:underline">${reg.phone}</a></td>
+          <td class="td"><span class="badge ${badgeColor}">${planText}</span></td>
           <td class="td text-xs text-gray-400">${reg.date}</td>
           <td class="td">${statusBadge}</td>
-          <td class="td">${actionButton}</td>
+          <td class="td">${action}</td>
         `;
         table.appendChild(row);
       });
     }
 
-    // To‘landi
+    // Mark as Paid
     function markAsPaid(index) {
-      let registrations = JSON.parse(localStorage.getItem('registrations') || '[]');
-      registrations[index].paid = true;
-      registrations[index].paidDate = new Date().toLocaleString('uz-UZ');
-      localStorage.setItem('registrations', JSON.stringify(registrations));
+      let regs = JSON.parse(localStorage.getItem('registrations') || '[]');
+      regs[index].paid = true;
+      regs[index].paidDate = new Date().toLocaleString(currentLang === 'ru' ? 'ru-RU' : 'en-US');
+      localStorage.setItem('registrations', JSON.stringify(regs));
       loadRegistrations();
     }
 
-    // Qidiruv
+    // Clear All Registrations
+    function clearList() {
+      const t = translations[currentLang];
+      if (confirm(t["confirm-clear"])) {
+        localStorage.removeItem('registrations');
+        loadRegistrations();
+        alert(t["alert-cleared"]);
+      }
+    }
+
+    // Search
     document.getElementById('search').addEventListener('input', loadRegistrations);
 
-    // Yangilash
+    // Auto-refresh
     setInterval(() => {
       if (!document.getElementById('admin-panel').classList.contains('hidden')) {
         loadRegistrations();
       }
     }, 3000);
 
-    // Enter bosilganda kirish
-    document.getElementById('password').addEventListener('keypress', function(e) {
+    // Enter to login
+    document.getElementById('password').addEventListener('keypress', e => {
       if (e.key === 'Enter') login();
+    });
+
+    // Init
+    document.addEventListener('DOMContentLoaded', () => {
+      const lt = document.getElementById('lang-toggle');
+      const ltm = document.getElementById('lang-toggle-mobile');
+      if (lt) lt.addEventListener('click', toggleLanguage);
+      if (ltm) ltm.addEventListener('click', toggleLanguage);
+
+      document.documentElement.lang = currentLang;
+      updateTexts();
+      document.getElementById('lang-text').textContent = translations[currentLang]['lang-text'];
+      const mt = document.getElementById('lang-text-mobile');
+      if (mt) mt.textContent = translations[currentLang]['lang-text'];
     });
   </script>
 </body>
