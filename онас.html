@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="uz">
+<html lang="ru">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="HusmaFit haqida – professional fitness markazining tarixi, missiyasi, jamoasi va yutuqlari. Zamonaviy jihozlar va sertifikatlangan trenerlar." />
-  <title>HusmaFit | Biz haqimizda</title>
+  <meta name="description" content="О HusmaFit – история, миссия, команда и достижения профессионального фитнес-центра. Современное оборудование и сертифицированные тренеры." />
+  <title data-lang="title">HusmaFit | О нас</title>
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -24,108 +24,109 @@
     .nav-link::after { content: ''; @apply absolute bottom-0 left-0 w-0 h-0.5 bg-red-600 transition-all duration-300; }
     .nav-link:hover::after { @apply w-full; }
     .mobile-menu { transition: all 0.3s ease-in-out; }
-    .hero-bg { background: linear-gradient(135deg, #1f2937 0%, #111827 100%); }
+    .card-hover:hover { transform: translateY(-8px); box-shadow: 0 20px 30px rgba(220, 38, 38, 0.15); }
   </style>
 </head>
 <body class="bg-gray-900 text-white overflow-x-hidden">
 
-  <!-- Header -->
-  <header class="bg-gray-800/95 backdrop-blur-sm py-3 px-4 md:px-8 shadow-xl fixed top-0 left-0 w-full z-50 border-b border-gray-700">
-    <div class="container mx-auto flex justify-between items-center">
-      <!-- Logo -->
-      <div class="flex items-center gap-2">
-        <img src="./446215302_1156955372010908_2017285007514614506_n.jpg" alt="HusmaFit Logo" class="w-11 h-11 rounded-full object-cover shadow-md hover:scale-110 transition" loading="lazy" />
-        <h1 class="text-xl md:text-2xl font-extrabold">Husma<span class="text-red-600">Fit</span></h1>
-      </div>
+<header class="bg-gray-800/95 backdrop-blur-sm py-2 px-3 sm:px-6 shadow-xl fixed top-0 left-0 w-full z-50 border-b border-gray-700 flex flex-wrap items-center justify-between">
+  <!-- Logo -->
+  <div class="flex items-center gap-2 flex-shrink-0">
+    <img src="./446215302_1156955372010908_2017285007514614506_n.jpg" alt="Логотип HusmaFit" class="w-8 h-8 sm:w-11 sm:h-11 rounded-full object-cover shadow-md hover:scale-110 transition" loading="lazy" />
+    <h1 class="text-base sm:text-xl font-extrabold">Husma<span class="text-red-600">Fit</span></h1>
+  </div>
 
-      <!-- Desktop Nav -->
-      <nav class="hidden md:flex items-center gap-5 text-sm">
-        <a href="index.html" class="nav-link font-semibold">Bosh sahifa</a>
-        <a href="онас.html" class="nav-link font-semibold text-red-500">Biz haqimizda</a>
-        <a href="услуги.html" class="nav-link font-semibold">Xizmatlar</a>
-        <a href="jadval.html" class="nav-link font-semibold">Jadval</a>
-        <a href="trainers.html" class="nav-link font-semibold">trener</a>
-        <a href="kontakt.html" class="nav-link font-semibold">Aloqa</a>
-        <a href="user-register.html" class="bg-red-600 text-white px-4 py-2 rounded-full font-bold hover:bg-red-700">Ro‘yxatdan o‘tish</a>
-                <a href="admin.html" class="bg-yellow-600 text-white px-4 py-2 rounded-full font-bold block text-center">Admin Panel</a>
-      </nav>
-
+  <!-- Desktop Nav (hide on small screens) -->
+  <nav class="hidden md:flex flex-wrap items-center gap-2 sm:gap-5 text-sm">
+    <a href="index.html" class="nav-link font-semibold" data-lang="nav-home">Главная</a>
+    <a href="онас.html" class="nav-link font-semibold text-red-500" data-lang="nav-about">О нас</a>
+    <a href="услуги.html" class="nav-link font-semibold" data-lang="nav-services">Услуги</a>
+    <a href="jadval.html" class="nav-link font-semibold" data-lang="nav-schedule">Расписание</a>
+    <a href="trainers.html" class="nav-link font-semibold" data-lang="nav-trainers">Тренеры</a>
+    <a href="kontakt.html" class="nav-link font-semibold" data-lang="nav-contact">Контакты</a>
+    <a href="user-register.html" class="bg-red-600 text-white px-3 sm:px-4 py-1 sm:py-2 rounded-full font-bold hover:bg-red-700" data-lang="nav-register">Регистрация</a>
+    <a href="admin.html" class="bg-yellow-600 text-white px-3 sm:px-4 py-1 sm:py-2 rounded-full font-bold text-center" data-lang="nav-admin">Админ-панель</a>
+    <button id="lang-toggle" class="bg-gray-700 text-white px-2 py-1 rounded-full text-xs font-bold hover:bg-gray-600 transition flex items-center gap-1 ml-1">
+      <i class="fas fa-globe"></i> <span id="lang-text">EN</span>
+    </button>
+  </nav>
       <!-- Social (Desktop) -->
       <div class="hidden md:flex gap-3">
-        <a href="https://www.facebook.com/hospitality__pro" class="text-gray-400 hover:text-blue-500"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://www.instagram.com/hospitality__pro" class="text-gray-400 hover:text-pink-500"><i class="fab fa-instagram"></i></a>
-        <a href="https://t.me/SirojiddinSayfiddinovich" class="text-gray-400 hover:text-cyan-500"><i class="fab fa-telegram-plane"></i></a>
+        <a href="tel:+998770009090" class="text-gray-400 hover:text-blue-500 flex items-center gap-2"><i class="fa-solid fa-phone"></i></a>
+        <a href="https://www.instagram.com/husma.fit/#" class="text-gray-400 hover:text-pink-500"><i class="fab fa-instagram"></i></a>
+        <a href="tel:+998770009090" class="text-gray-400 hover:text-blue-500 flex items-center gap-2"><i class="fab fa-telegram-plane"></i></a>
       </div>
+  <!-- Mobile Button -->
+  <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="md:hidden text-xl p-2">
+    <i class="fas fa-bars"></i>
+  </button>
 
-      <!-- Mobile Button -->
-      <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="md:hidden">
-        <i class="fas fa-bars text-lg"></i>
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden md:hidden w-full bg-gray-800/98 backdrop-blur-md border-t border-gray-700 py-3 px-4">
+    <nav class="flex flex-col gap-2">
+      <a href="index.html" class="nav-link font-semibold" data-lang="nav-home">Главная</a>
+      <a href="онас.html" class="nav-link font-semibold text-red-500" data-lang="nav-about">О нас</a>
+      <a href="услуги.html" class="nav-link font-semibold" data-lang="nav-services">Услуги</a>
+      <a href="jadval.html" class="nav-link font-semibold" data-lang="nav-schedule">Расписание</a>
+      <a href="trainers.html" class="nav-link font-semibold" data-lang="nav-trainers">Тренеры</a>
+      <a href="kontakt.html" class="nav-link font-semibold" data-lang="nav-contact">Контакты</a>
+      <a href="user-register.html" class="bg-red-600 text-white px-4 py-2 rounded-full font-bold hover:bg-red-700" data-lang="nav-register">Регистрация</a>
+      <a href="admin.html" class="bg-yellow-600 text-white px-4 py-2 rounded-full font-bold block text-center" data-lang="nav-admin">Админ-панель</a>
+      <button id="lang-toggle1" class="bg-gray-700 text-white px-3 py-2 rounded-full text-xs font-bold hover:bg-gray-600 transition flex items-center gap-1 mt-2">
+        <i class="fas fa-globe"></i> <span id="lang-text">EN</span>
       </button>
-    </div>
+    </nav>
+    <div class="flex gap-4 mt-4 justify-center">
+        <a href="tel:+998770009090" class="text-gray-400 hover:text-blue-500 flex items-center gap-2"><i class="fa-solid fa-phone"></i></a>
+        <a href="https://www.instagram.com/husma.fit/#" class="text-gray-400 hover:text-pink-500"><i class="fab fa-instagram"></i></a>
+        <a href="tel:+998770009090" class="text-gray-400 hover:text-blue-500 flex items-center gap-2"><i class="fab fa-telegram-plane"></i></a>
+  </div>
+  </div>
+</header>
 
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden md:hidden bg-gray-800/98 backdrop-blur-md border-t border-gray-700 py-4 px-6 mobile-menu">
-      <nav class="flex flex-col gap-3 text-left">
-        <a href="index.html" class="nav-link font-semibold">Bosh sahifa</a>
-        <a href="онас.html" class="nav-link font-semibold text-red-500">Biz haqimizda</a>
-        <a href="услуги.html" class="nav-link font-semibold">Xizmatlar</a>
-        <a href="jadval.html" class="nav-link font-semibold">Jadval</a>
-        <a href="trainers.html" class="nav-link font-semibold">trener</a>
-        <a href="kontakt.html" class="nav-link font-semibold">Aloqa</a>
-        <a href="user-register.html" class="bg-red-600 text-white px-4 py-2 rounded-full font-bold hover:bg-red-700">Ro‘yxatdan o‘tish</a>
-                <a href="admin.html" class="bg-yellow-600 text-white px-4 py-2 rounded-full font-bold block text-center">Admin Panel</a>
-      </nav>
-      <div class="flex gap-4 mt-4">
-        <a href="#" class="text-gray-400 hover:text-blue-500"><i class="fab fa-facebook-f"></i></a>
-        <a href="#" class="text-gray-400 hover:text-pink-500"><i class="fab fa-instagram"></i></a>
-        <a href="#" class="text-gray-400 hover:text-cyan-500"><i class="fab fa-telegram-plane"></i></a>
-      </div>
-    </div>
-  </header>
 
-  <!-- Hero Section (Biz haqimizda) -->
-  <section class="relative flex flex-col items-center justify-center text-center hero-bg py-20 px-4 mt-16 md:mt-0" data-aos="fade-up">
-    <div class="relative z-10 max-w-4xl mx-auto">
-      <h1 class="text-3xl sm:text-5xl md:text-6xl font-extrabold mb-4">
-        <span class="text-red-600">Husma</span><br class="hidden md:block">Fit
+  <!-- Hero Section (О нас) -->
+  <section class="relative flex flex-col items-center justify-center text-center py-24 px-4 mt-16 md:mt-0 bg-gradient-to-b from-gray-800 to-gray-900" data-aos="fade-up">
+    <div class="max-w-4xl mx-auto">
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4" data-lang="hero-title">
+        <span class="text-red-600">Husma</span>Fit
       </h1>
-      <p class="text-lg md:text-xl text-gray-200 mb-6 max-w-2xl mx-auto">
-        <span class="inline-block">Sog‘lom turmush tarzi uchun</span><br class="sm:hidden">
-        <span class="inline-block">professional fitness markazi</span>
+      <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto" data-lang="hero-desc">
+        Профессиональный фитнес-центр для здорового образа жизни
       </p>
-      <div class="flex flex-wrap justify-center gap-2 text-sm md:text-base">
-        <span class="bg-red-600 text-white px-3 py-1 rounded-full">500+ a'zo</span>
-        <span class="bg-gray-700 text-white px-3 py-1 rounded-full">3 yil tajriba</span>
-        <span class="bg-gray-700 text-white px-3 py-1 rounded-full">24/7 ishlaydi</span>
+      <div class="flex flex-wrap justify-center gap-3 text-sm">
+        <span class="bg-red-600 text-white px-4 py-1.5 rounded-full" data-lang="hero-members">500+ участников</span>
+        <span class="bg-gray-700 text-white px-4 py-1.5 rounded-full" data-lang="hero-experience">3 года опыта</span>
+        <span class="bg-gray-700 text-white px-4 py-1.5 rounded-full" data-lang="hero-hours">Круглосуточно</span>
       </div>
     </div>
   </section>
 
-  <!-- Bizning Missiyamiz -->
-  <section class="py-16 px-4 bg-gray-800">
+  <!-- Наша миссия -->
+  <section class="py-16 px-4 bg-gray-900">
     <div class="container mx-auto">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div data-aos="fade-right">
-          <h2 class="text-3xl md:text-4xl font-bold mb-4">Bizning Missiyamiz</h2>
-          <p class="text-gray-300 mb-6 leading-relaxed">Har bir inson uchun fitness – bu shunchaki mashq emas, bu hayot tarzi. Biz sog'lom, faol va baxtli hayot uchun professional yondashuv taklif qilamiz.</p>
+          <h2 class="text-3xl md:text-4xl font-bold mb-4" data-lang="mission-title">Наша миссия</h2>
+          <p class="text-gray-300 mb-6 leading-relaxed" data-lang="mission-desc">Фитнес для каждого человека – это не просто тренировки, это образ жизни. Мы предлагаем профессиональный подход к здоровой, активной и счастливой жизни.</p>
           <div class="space-y-4">
             <div class="flex items-center gap-3">
               <div class="w-2 h-2 bg-red-600 rounded-full"></div>
-              <p class="text-gray-400">Individual dasturlar har bir mijoz uchun</p>
+              <p class="text-gray-400" data-lang="mission-point1">Индивидуальные программы для каждого клиента</p>
             </div>
             <div class="flex items-center gap-3">
               <div class="w-2 h-2 bg-red-600 rounded-full"></div>
-              <p class="text-gray-400">Sertifikatlangan mutaxassislar jamoasi</p>
+              <p class="text-gray-400" data-lang="mission-point2">Команда сертифицированных специалистов</p>
             </div>
             <div class="flex items-center gap-3">
               <div class="w-2 h-2 bg-red-600 rounded-full"></div>
-              <p class="text-gray-400">Zamonaviy texnologiyalar va jihozlar</p>
+              <p class="text-gray-400" data-lang="mission-point3">Современные технологии и оборудование</p>
             </div>
           </div>
         </div>
         <div class="order-first lg:order-last" data-aos="fade-left">
           <div class="relative">
-            <img src="373746972.jpg" alt="HusmaFit markazi" class="w-full rounded-xl shadow-2xl" loading="lazy" />
+            <img src="373746972.jpg" alt="Центр HusmaFit" class="w-full rounded-xl shadow-2xl" loading="lazy" />
             <div class="absolute inset-0 bg-red-600/10 rounded-xl"></div>
           </div>
         </div>
@@ -133,85 +134,86 @@
     </div>
   </section>
 
-  <!-- Tariximiz -->
-  <section class="py-16 px-4 bg-gray-900">
+  <!-- Наша история -->
+  <section class="py-16 px-4 bg-gray-800">
     <div class="container mx-auto text-center">
-      <h2 class="text-3xl md:text-4xl font-bold mb-12" data-aos="fade-up">Tariximiz</h2>
+      <h2 class="text-3xl md:text-4xl font-bold mb-12" data-aos="fade-up" data-lang="history-title">Наша история</h2>
       
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto" data-aos="fade-up" data-aos-delay="100">
         <div class="text-center">
           <div class="w-20 h-20 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
             <i class="fas fa-seedling text-2xl text-white"></i>
           </div>
-          <h3 class="text-xl font-bold mb-2">2022</h3>
-          <p class="text-gray-400">HusmaFit tashkil topdi. Birinchi filial ochildi.</p>
+          <h3 class="text-xl font-bold mb-2" data-lang="history-year1">2022</h3>
+          <p class="text-gray-400" data-lang="history-desc1">Основан HusmaFit. Открыт первый филиал.</p>
         </div>
         
         <div class="text-center">
           <div class="w-20 h-20 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
             <i class="fas fa-chart-line text-2xl text-white"></i>
           </div>
-          <h3 class="text-xl font-bold mb-2">2023</h3>
-          <p class="text-gray-400">200+ a'zo va yangi jihozlar bilan kengayish.</p>
+          <h3 class="text-xl font-bold mb-2" data-lang="history-year2">2023</h3>
+          <p class="text-gray-400" data-lang="history-desc2">Более 200 участников и расширение с новым оборудованием.</p>
         </div>
         
         <div class="text-center">
           <div class="w-20 h-20 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
             <i class="fas fa-trophy text-2xl text-white"></i>
           </div>
-          <h3 class="text-xl font-bold mb-2">2025</h3>
-          <p class="text-gray-400">500+ a'zo va eng yaxshi fitness markazi mukofoti.</p>
+          <h3 class="text-xl font-bold mb-2" data-lang="history-year3">2025</h3>
+          <p class="text-gray-400" data-lang="history-desc3">Более 500 участников и награда «Лучший фитнес-центр».</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Jamoamiz -->
-  <section class="py-16 px-4 bg-gray-800">
+  <!-- Наша команда -->
+  <section class="py-16 px-4 bg-gray-900">
     <div class="container mx-auto">
-      <h2 class="text-3xl md:text-4xl font-bold text-center mb-12" data-aos="fade-up">Jamoamiz</h2>
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-12" data-aos="fade-up" data-lang="team-title">Наша команда</h2>
       
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8" data-aos="fade-up" data-aos-delay="100">
-        <!-- Trener 1 -->
+        <!-- Тренер 1 -->
         <div class="text-center group">
           <div class="relative overflow-hidden rounded-xl mb-4">
-            <img src="./trainer1.jpg" alt="Trener Sirojiddin" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy" />
+            <img src="./Снимок экрана 2025-11-06 213959.png" alt="Тренер Sirojiddin" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy" />
             <div class="absolute inset-0 bg-red-600/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
           </div>
-          <h3 class="text-xl font-bold mb-1">Sirojiddin Sayfiddinov</h3>
-          <p class="text-red-600 font-semibold mb-2">Bosh trener</p>
-          <p class="text-gray-400 text-sm">10+ yil tajriba, CrossFit va kuch mashqlari mutaxassisi</p>
+          <h3 class="text-xl font-bold mb-1" data-lang="team-name1">Jonibek Norqobilov</h3>
+          <p class="text-red-600 font-semibold mb-2" data-lang="team-role1">Главный тренер  по боксу </p>
+          <p class="text-gray-400 text-sm" data-lang="team-desc1">Более 10 лет опыта, специалист по CrossFit и силовым тренировкам</p>
         </div>
 
-        <!-- Trener 2 -->
+        <!-- Тренер 2 -->
         <div class="text-center group">
           <div class="relative overflow-hidden rounded-xl mb-4">
-            <img src="./trainer2.jpg" alt="Trener Nigora" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy" />
+            <img src="./Снимок экрана 2025-11-06 214557.png" alt="Тренер Nigora" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy" />
             <div class="absolute inset-0 bg-red-600/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
           </div>
-          <h3 class="text-xl font-bold mb-1">Nigora Karimova</h3>
-          <p class="text-red-600 font-semibold mb-2">Yoga va Pilates treneri</p>
-          <p class="text-gray-400 text-sm">8 yil tajriba, 500+ shogird tayyorlagan</p>
+          <h3 class="text-xl font-bold mb-1" data-lang="team-name2">Marya</h3>
+          <p class="text-red-600 font-semibold mb-2" data-lang="team-role2">Тренер по йоге и пилатесу</p>
+          <p class="text-gray-400 text-sm" data-lang="team-desc2">8 лет опыта, подготовила более 500 учеников</p>
         </div>
 
-        <!-- Trener 3 -->
+        <!-- Тренер 3 -->
         <div class="text-center group">
           <div class="relative overflow-hidden rounded-xl mb-4">
-            <img src="./trainer3.jpg" alt="Trener Azizbek" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy" />
+            <img src="./Снимок экрана 2025-11-06 215118.png" alt="Тренер Azizbek" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy" />
             <div class="absolute inset-0 bg-red-600/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
           </div>
-          <h3 class="text-xl font-bold mb-1">Azizbek Toshmatov</h3>
-          <p class="text-red-600 font-semibold mb-2">Kardio va funktsional trening</p>
-          <p class="text-gray-400 text-sm">Marafon yuguruvchi, 6 yil fitness ko'rsatkichlari</p>
+          <h3 class="text-xl font-bold mb-1" data-lang="team-name3">Dima</h3>
+          <p class="text-red-600 font-semibold mb-2" data-lang="team-role3">Кардио и функциональные тренировки</p>
+          <p class="text-gray-400 text-sm" data-lang="team-desc3">Марафонец, 6 лет в фитнес-индустрии</p>
         </div>
       </div>
     </div>
   </section>
+  
 
-  <!-- Yutuqlarimiz -->
-  <section class="py-16 px-4 bg-gray-900">
+  <!-- Наши достижения -->
+  <section class="py-16 px-4 bg-gray-800">
     <div class="container mx-auto text-center">
-      <h2 class="text-3xl md:text-4xl font-bold mb-12" data-aos="fade-up">Yutuqlarimiz</h2>
+      <h2 class="text-3xl md:text-4xl font-bold mb-12" data-aos="fade-up" data-lang="achievements-title">Наши достижения</h2>
       
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="100">
         <div class="space-y-6">
@@ -220,8 +222,8 @@
               <i class="fas fa-award text-xl text-white"></i>
             </div>
             <div>
-              <h3 class="font-bold text-lg">Eng yaxshi fitness markazi 2024</h3>
-              <p class="text-gray-400">Fitness O'zbekiston mukofoti</p>
+              <h3 class="font-bold text-lg" data-lang="achievement1-title">Лучший фитнес-центр 2024</h3>
+              <p class="text-gray-400" data-lang="achievement1-desc">Премия Fitness Uzbekistan</p>
             </div>
           </div>
           
@@ -230,8 +232,8 @@
               <i class="fas fa-users text-xl text-white"></i>
             </div>
             <div>
-              <h3 class="font-bold text-lg">500+ qoniqarli mijoz</h3>
-              <p class="text-gray-400">Faol a'zolar soni</p>
+              <h3 class="font-bold text-lg" data-lang="achievement2-title">500+ довольных клиентов</h3>
+              <p class="text-gray-400" data-lang="achievement2-desc">Количество активных участников</p>
             </div>
           </div>
           
@@ -240,8 +242,8 @@
               <i class="fas fa-dumbbell text-xl text-white"></i>
             </div>
             <div>
-              <h3 class="font-bold text-lg">50+ turli mashg'ulotlar</h3>
-              <p class="text-gray-400">Kundalik dastur</p>
+              <h3 class="font-bold text-lg" data-lang="achievement3-title">50+ различных занятий</h3>
+              <p class="text-gray-400" data-lang="achievement3-desc">Ежедневная программа</p>
             </div>
           </div>
         </div>
@@ -252,8 +254,8 @@
               <i class="fas fa-chart-bar text-xl text-white"></i>
             </div>
             <div>
-              <h3 class="font-bold text-lg">95% qaytish ko'rsatkichi</h3>
-              <p class="text-gray-400">Mijozlar qoniqish darajasi</p>
+              <h3 class="font-bold text-lg" data-lang="achievement4-title">95% уровень возвращаемости</h3>
+              <p class="text-gray-400" data-lang="achievement4-desc">Удовлетворённость клиентов</p>
             </div>
           </div>
           
@@ -262,8 +264,8 @@
               <i class="fas fa-clock text-xl text-white"></i>
             </div>
             <div>
-              <h3 class="font-bold text-lg">24/7 texnik qo'llab-quvvatlash</h3>
-              <p class="text-gray-400">Har doim yordam beramiz</p>
+              <h3 class="font-bold text-lg" data-lang="achievement5-title">Круглосуточная техподдержка</h3>
+              <p class="text-gray-400" data-lang="achievement5-desc">Всегда готовы помочь</p>
             </div>
           </div>
           
@@ -272,8 +274,8 @@
               <i class="fas fa-globe text-xl text-white"></i>
             </div>
             <div>
-              <h3 class="font-bold text-lg">Onlayn ro'yxatdan o'tish</h3>
-              <p class="text-gray-400">Tez va qulay</p>
+              <h3 class="font-bold text-lg" data-lang="achievement6-title">Онлайн-регистрация</h3>
+              <p class="text-gray-400" data-lang="achievement6-desc">Быстро и удобно</p>
             </div>
           </div>
         </div>
@@ -284,15 +286,11 @@
   <!-- CTA -->
   <section class="py-16 px-4 bg-red-600">
     <div class="container mx-auto text-center">
-      <h2 class="text-3xl md:text-4xl font-bold mb-4" data-aos="fade-up">HusmaFit oilasiga qo'shiling!</h2>
-      <p class="text-lg mb-8 max-w-xl mx-auto" data-aos="fade-up" data-aos-delay="100">Birinchi mashg'ulot – bepul. Bugun ro'yxatdan o'ting va sog'lom hayotni boshlang.</p>
+      <h2 class="text-3xl md:text-4xl font-bold mb-4" data-aos="fade-up" data-lang="cta-title">Присоединяйтесь к семье HusmaFit!</h2>
+      <p class="text-lg mb-8 max-w-xl mx-auto" data-aos="fade-up" data-aos-delay="100" data-lang="cta-desc">Первое занятие — бесплатно. Зарегистрируйтесь сегодня и начните здоровую жизнь.</p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center" data-aos="fade-up" data-aos-delay="200">
-        <a href="./user-register.html" class="bg-white text-red-600 font-bold px-6 py-3 rounded-full hover:bg-gray-100 transition text-center">
-          Bepul sinov darsi
-        </a>
-        <a href="./услуги.html" class="border-2 border-white text-white font-bold px-6 py-3 rounded-full hover:bg-white hover:text-red-600 transition text-center">
-          Xizmatlarni ko'rish
-        </a>
+        <a href="./user-register.html" class="bg-white text-red-600 font-bold px-6 py-3 rounded-full hover:bg-gray-100 transition text-center" data-lang="cta-btn1">Бесплатное пробное занятие</a>
+        <a href="./услуги.html" class="border-2 border-white text-white font-bold px-6 py-3 rounded-full hover:bg-white hover:text-red-600 transition text-center" data-lang="cta-btn2">Посмотреть услуги</a>
       </div>
     </div>
   </section>
@@ -300,23 +298,158 @@
   <!-- Footer -->
   <footer class="bg-gray-900 py-8 px-4 border-t border-gray-800">
     <div class="container mx-auto text-center text-sm text-gray-400">
-      <p class="mb-3">&copy; 2025 <span class="text-red-600">HusmaFit</span>. Barcha huquqlar himoyalangan.</p>
-      <div class="flex justify-center gap-6 mb-3">
-        <a href="https://www.facebook.com/hospitality__pro" class="hover:text-white transition"><i class="fab fa-facebook-f text-lg"></i></a>
-        <a href="https://www.instagram.com/hospitality__pro" class="hover:text-white transition"><i class="fab fa-instagram text-lg"></i></a>
-        <a href="https://t.me/SirojiddinSayfiddinovich" class="hover:text-white transition"><i class="fab fa-telegram-plane text-lg"></i></a>
+      <p class="mb-3" data-lang="footer-copy">&copy; 2025 <span class="text-red-600">HusmaFit</span>. Все права защищены.</p>
+      <div class="flex justify-center gap-6 mb-3">        <a href="tel:+998770009090" class="text-gray-400 hover:text-blue-500 flex items-center gap-2"><i class="fa-solid fa-phone"></i></a>
+        <a href="https://www.instagram.com/husma.fit/#" class="text-gray-400 hover:text-pink-500"><i class="fab fa-instagram"></i></a>
+        <a href="tel:+998770009090" class="text-gray-400 hover:text-blue-500 flex items-center gap-2"><i class="fab fa-telegram-plane"></i></a>
       </div>
-      <p class="text-xs">Sog'lom turmush tarzi uchun professional yondashuv</p>
+      <p class="text-xs" data-lang="footer-desc">Профессиональный подход к здоровому образу жизни</p>
     </div>
   </footer>
 
   <!-- AOS Script -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    AOS.init({ 
-      duration: 800, 
-      once: true,
-      offset: 100
+    AOS.init({ duration: 800, once: true });
+  </script>
+
+  <!-- TIL O‘ZGARTIRISH -->
+  <script>
+    const translations = {
+      ru: {
+        "title": "HusmaFit | О нас",
+
+        // Navigation
+        "nav-home": "Главная", "nav-about": "О нас", "nav-services": "Услуги", "nav-schedule": "Расписание",
+        "nav-trainers": "Тренеры", "nav-contact": "Контакты", "nav-register": "Регистрация", "nav-admin": "Админ-панель",
+
+        // Hero
+        "hero-title": "<span class='text-red-600'>Husma</span>Fit",
+        "hero-desc": "Профессиональный фитнес-центр для здорового образа жизни",
+        "hero-members": "500+ участников", "hero-experience": "3 года опыта", "hero-hours": "Круглосуточно",
+
+        // Mission
+        "mission-title": "Наша миссия",
+        "mission-desc": "Фитнес для каждого человека – это не просто тренировки, это образ жизни. Мы предлагаем профессиональный подход к здоровой, активной и счастливой жизни.",
+        "mission-point1": "Индивидуальные программы для каждого клиента",
+        "mission-point2": "Команда сертифицированных специалистов",
+        "mission-point3": "Современные технологии и оборудование",
+
+        // History
+        "history-title": "Наша история",
+        "history-year1": "2022", "history-desc1": "Основан HusmaFit. Открыт первый филиал.",
+        "history-year2": "2023", "history-desc2": "Более 200 участников и расширение с новым оборудованием.",
+        "history-year3": "2025", "history-desc3": "Более 500 участников и награда «Лучший фитнес-центр».",
+
+        // Team
+        "team-title": "Наша команда",
+        "team-name1": "Jonibek Norqobilov", "team-role1": "Главный тренер  по боксу ", "team-desc1": "Более 10 лет опыта, специалист по CrossFit и силовым тренировкам",
+        "team-name2": "Marya", "team-role2": "Тренер по йоге и пилатесу", "team-desc2": "8 лет опыта, подготовила более 500 учеников",
+        "team-name3": "Dima", "team-role3": "Плавания", "team-desc3": "Плавания, 6 лет в фитнес-индустрии",
+
+        // Achievements
+        "achievements-title": "Наши достижения",
+        "achievement1-title": "Лучший фитнес-центр 2024", "achievement1-desc": "Премия Fitness Uzbekistan",
+        "achievement2-title": "500+ довольных клиентов", "achievement2-desc": "Количество активных участников",
+        "achievement3-title": "50+ различных занятий", "achievement3-desc": "Ежедневная программа",
+        "achievement4-title": "95% уровень возвращаемости", "achievement4-desc": "Удовлетворённость клиентов",
+        "achievement5-title": "Круглосуточная техподдержка", "achievement5-desc": "Всегда готовы помочь",
+        "achievement6-title": "Онлайн-регистрация", "achievement6-desc": "Быстро и удобно",
+
+        // CTA
+        "cta-title": "Присоединяйтесь к семье HusmaFit!",
+        "cta-desc": "Первое занятие — бесплатно. Зарегистрируйтесь сегодня и начните здоровую жизнь.",
+        "cta-btn1": "Бесплатное пробное занятие", "cta-btn2": "Посмотреть услуги",
+
+        // Footer
+        "footer-copy": "&copy; 2025 <span class='text-red-600'>HusmaFit</span>. Все права защищены.",
+        "footer-desc": "Профессиональный подход к здоровому образу жизни",
+
+        "lang-text": "EN"
+      },
+      en: {
+        "title": "HusmaFit | About Us",
+
+        // Navigation
+        "nav-home": "Home", "nav-about": "About", "nav-services": "Services", "nav-schedule": "Schedule",
+        "nav-trainers": "Trainers", "nav-contact": "Contact", "nav-register": "Register", "nav-admin": "Admin Panel",
+
+        // Hero
+        "hero-title": "<span class='text-red-600'>Husma</span>Fit",
+        "hero-desc": "Professional fitness center for a healthy lifestyle",
+        "hero-members": "500+ Members", "hero-experience": "3 Years Experience", "hero-hours": "24/7",
+
+        // Mission
+        "mission-title": "Our Mission",
+        "mission-desc": "Fitness for everyone is not just workouts, it's a lifestyle. We offer a professional approach to a healthy, active, and happy life.",
+        "mission-point1": "Individual programs for each client",
+        "mission-point2": "Team of certified specialists",
+        "mission-point3": "Modern technology and equipment",
+
+        // History
+        "history-title": "Our History",
+        "history-year1": "2022", "history-desc1": "HusmaFit founded. First branch opened.",
+        "history-year2": "2023", "history-desc2": "Over 200 members and expansion with new equipment.",
+        "history-year3": "2025", "history-desc3": "Over 500 members and 'Best Fitness Center' award.",
+
+        // Team
+        "team-title": "Our Team",
+        "team-name1": "Sirojiddin Sayfiddinov", "team-role1": "Head Trainer", "team-desc1": "Over 10 years experience, CrossFit and strength training specialist",
+        "team-name2": "Nigora Karimova", "team-role2": "Yoga & Pilates Trainer", "team-desc2": "8 years experience, trained over 500 students",
+        "team-name3": "Azizbek Toshmatov", "team-role3": "Cardio & Functional Training", "team-desc3": "Marathon runner, 6 years in fitness industry",
+
+        // Achievements
+        "achievements-title": "Our Achievements",
+        "achievement1-title": "Best Fitness Center 2024", "achievement1-desc": "Fitness Uzbekistan Award",
+        "achievement2-title": "500+ Happy Clients", "achievement2-desc": "Number of active members",
+        "achievement3-title": "50+ Different Classes", "achievement3-desc": "Daily program",
+        "achievement4-title": "95% Retention Rate", "achievement4-desc": "Client satisfaction",
+        "achievement5-title": "24/7 Support", "achievement5-desc": "Always ready to help",
+        "achievement6-title": "Online Registration", "achievement6-desc": "Fast and convenient",
+
+        // CTA
+        "cta-title": "Join the HusmaFit Family!",
+        "cta-desc": "First session is free. Register today and start a healthy life.",
+        "cta-btn1": "Free Trial Session", "cta-btn2": "View Services",
+
+        // Footer
+        "footer-copy": "&copy; 2025 <span class='text-red-600'>HusmaFit</span>. All rights reserved.",
+        "footer-desc": "Professional approach to a healthy lifestyle",
+
+        "lang-text": "RU"
+      }
+    };
+
+    let currentLang = localStorage.getItem('lang') || 'ru';
+
+    function toggleLanguage() {
+      currentLang = currentLang === 'ru' ? 'en' : 'ru';
+      localStorage.setItem('lang', currentLang);
+      document.documentElement.lang = currentLang;
+      updateTexts();
+      document.getElementById('lang-text').textContent = translations[currentLang]['lang-text'];
+    }
+
+    function updateTexts() {
+      const t = translations[currentLang];
+      Object.keys(t).forEach(key => {
+        document.querySelectorAll(`[data-lang="${key}"]`).forEach(el => {
+          el.innerHTML = t[key];
+        });
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('lang-toggle').addEventListener('click', toggleLanguage);
+      document.documentElement.lang = currentLang;
+      updateTexts();
+      document.getElementById('lang-text').textContent = translations[currentLang]['lang-text'];
+    });
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('lang-toggle1').addEventListener('click', toggleLanguage);
+      document.documentElement.lang = currentLang;
+      updateTexts();
+      document.getElementById('lang-text').textContent = translations[currentLang]['lang-text'];
     });
   </script>
 </body>
