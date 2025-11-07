@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="uz">
+<html lang="ru">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="HusmaFit dars jadvali – haftalik mashg‘ulotlar, yoga, crossfit, kardio. Filtr va vaqt bo‘yicha qidiruv." />
-  <title>HusmaFit | Dars Jadvali</title>
+  <meta name="description" content="Расписание HusmaFit – еженедельные тренировки, йога, кроссфит, кардио. Фильтр и поиск по времени." />
+  <title data-lang="title">HusmaFit | Расписание</title>
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -12,18 +12,20 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-  <!-- Google Fonts -->
+  <!-- Google Fonts: Poppins -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <!-- AOS Animation -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
   <style>
-    body { font-family: 'Poppins', sans-serif; background: #111827; color: white; }
+    body { font-family: 'Poppins', sans-serif; }
     .nav-link { @apply relative transition-all duration-300 hover:text-red-500; }
     .nav-link::after { content: ''; @apply absolute bottom-0 left-0 w-0 h-0.5 bg-red-600 transition-all duration-300; }
     .nav-link:hover::after { @apply w-full; }
-    .day-card { @apply bg-gradient-to-br from-gray-800 to-gray-900 p-5 rounded-xl shadow-lg hover:shadow-red-600/30 transition-all duration-300 transform hover:-translate-y-1; }
+    .mobile-menu { transition: all 0.3s ease-in-out; }
+    .card-hover:hover { transform: translateY(-8px); box-shadow: 0 20px 30px rgba(220, 38, 38, 0.15); }
+    .day-card { @apply bg-gradient-to-br from-gray-800 to-gray-900 p-6 rounded-xl shadow-lg card-hover transition-all duration-300 border border-gray-700; }
     .time-badge { @apply inline-block bg-red-600 text-white text-xs px-3 py-1 rounded-full font-semibold; }
     .filter-btn { @apply px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 border; }
     .filter-btn.active { @apply bg-red-600 text-white border-red-600; }
@@ -37,27 +39,31 @@
     <div class="container mx-auto flex justify-between items-center">
       <!-- Logo -->
       <div class="flex items-center gap-2">
-        <img src="./446215302_1156955372010908_2017285007514614506_n.jpg" alt="HusmaFit Logo" class="w-11 h-11 rounded-full object-cover shadow-md hover:scale-110 transition" loading="lazy" />
+        <img src="./446215302_1156955372010908_2017285007514614506_n.jpg" alt="HusmaFit Логотип" class="w-11 h-11 rounded-full object-cover shadow-md hover:scale-110 transition" loading="lazy" />
         <h1 class="text-xl md:text-2xl font-extrabold">Husma<span class="text-red-600">Fit</span></h1>
       </div>
 
       <!-- Desktop Nav -->
       <nav class="hidden md:flex items-center gap-5 text-sm">
-        <a href="index.html" class="nav-link font-semibold">Bosh sahifa</a>
-        <a href="онас.html" class="nav-link font-semibold">Biz haqimizda</a>
-        <a href="услуги.html" class="nav-link font-semibold text-red-500">Xizmatlar</a>
-        <a href="jadval.html" class="nav-link font-semibold">Jadval</a>
-        <a href="trainers.html" class="nav-link font-semibold">trener</a>
-        <a href="kontakt.html" class="nav-link font-semibold">Aloqa</a>
-        <a href="user-register.html" class="bg-red-600 text-white px-4 py-2 rounded-full font-bold hover:bg-red-700">Ro‘yxatdan o‘tish</a>
-        <a href="admin.html" class="bg-yellow-600 text-white px-4 py-2 rounded-full font-bold block text-center">Admin Panel</a>
+        <a href="index.html" class="nav-link font-semibold" data-lang="nav-home">Главная</a>
+        <a href="онас.html" class="nav-link font-semibold" data-lang="nav-about">О нас</a>
+        <a href="услуги.html" class="nav-link font-semibold" data-lang="nav-services">Услуги</a>
+        <a href="jadval.html" class="nav-link font-semibold text-red-500" data-lang="nav-schedule">Расписание</a>
+        <a href="trainers.html" class="nav-link font-semibold" data-lang="nav-trainers">Тренеры</a>
+        <a href="kontakt.html" class="nav-link font-semibold" data-lang="nav-contact">Контакты</a>
+        <a href="user-register.html" class="bg-red-600 text-white px-4 py-2 rounded-full font-bold hover:bg-red-700" data-lang="nav-register">Регистрация</a>
+        <a href="admin.html" class="bg-yellow-600 text-white px-4 py-2 rounded-full font-bold block text-center" data-lang="nav-admin">Админ-панель</a>
+        <!-- Language Language Button -->
+        <button id="lang-toggle" class="bg-gray-700 text-white px-3 py-2 rounded-full text-xs font-bold hover:bg-gray-600 transition flex items-center gap-1 ml-2">
+          <i class="fas fa-globe"></i> <span id="lang-text">EN</span>
+        </button>
       </nav>
 
+
       <!-- Social (Desktop) -->
-      <div class="hidden md:flex gap-3">
-        <a href="https://www.facebook.com/hospitality__pro" class="text-gray-400 hover:text-blue-500"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://www.instagram.com/hospitality__pro" class="text-gray-400 hover:text-pink-500"><i class="fab fa-instagram"></i></a>
-        <a href="https://t.me/SirojiddinSayfiddinovich" class="text-gray-400 hover:text-cyan-500"><i class="fab fa-telegram-plane"></i></a>
+      <div class="hidden md:flex gap-3">        <a href="tel:+998770009090" class="text-gray-400 hover:text-blue-500 flex items-center gap-2"><i class="fa-solid fa-phone"></i></a>
+        <a href="https://www.instagram.com/husma.fit/#" class="text-gray-400 hover:text-pink-500"><i class="fab fa-instagram"></i></a>
+        <a href="tel:+998770009090" class="text-gray-400 hover:text-blue-500 flex items-center gap-2"><i class="fab fa-telegram-plane"></i></a>
       </div>
 
       <!-- Mobile Button -->
@@ -69,19 +75,22 @@
     <!-- Mobile Menu -->
     <div id="mobile-menu" class="hidden md:hidden bg-gray-800/98 backdrop-blur-md border-t border-gray-700 py-4 px-6 mobile-menu">
       <nav class="flex flex-col gap-3 text-left">
-        <a href="index.html" class="nav-link font-semibold">Bosh sahifa</a>
-        <a href="онас.html" class="nav-link font-semibold">Biz haqimizda</a>
-        <a href="услуги.html" class="nav-link font-semibold text-red-500">Xizmatlar</a>
-        <a href="jadval.html" class="nav-link font-semibold">Jadval</a>
-        <a href="trainers.html" class="nav-link font-semibold">Trener</a>
-        <a href="kontakt.html" class="nav-link font-semibold">Aloqa</a>
-        <a href="user-register.html" class="bg-red-600 text-white px-4 py-2 rounded-full font-bold hover:bg-red-700">Ro‘yxatdan o‘tish</a>
-                        <a href="admin.html" class="bg-yellow-600 text-white px-4 py-2 rounded-full font-bold block text-center">Admin Panel</a>
+        <a href="index.html" class="nav-link font-semibold" data-lang="nav-home">Главная</a>
+        <a href="онас.html" class="nav-link font-semibold" data-lang="nav-about">О нас</a>
+        <a href="услуги.html" class="nav-link font-semibold" data-lang="nav-services">Услуги</a>
+        <a href="jadval.html" class="nav-link font-semibold text-red-500" data-lang="nav-schedule">Расписание</a>
+        <a href="trainers.html" class="nav-link font-semibold" data-lang="nav-trainers">Тренеры</a>
+        <a href="kontakt.html" class="nav-link font-semibold" data-lang="nav-contact">Контакты</a>
+        <a href="user-register.html" class="bg-red-600 text-white px-4 py-2 rounded-full font-bold hover:bg-red-700" data-lang="nav-register">Регистрация</a>
+        <a href="admin.html" class="bg-yellow-600 text-white px-4 py-2 rounded-full font-bold block text-center" data-lang="nav-admin">Админ-панель</a>
+                <!-- Language Language Button -->
+        <button id="lang-toggle1" class="bg-gray-700 text-white px-3 py-2 rounded-full text-xs font-bold hover:bg-gray-600 transition flex items-center gap-1 ml-2">
+          <i class="fas fa-globe"></i> <span id="lang-text">EN</span>
+        </button>
       </nav>
-      <div class="flex gap-4 mt-4">
-        <a href="#" class="text-gray-400 hover:text-blue-500"><i class="fab fa-facebook-f"></i></a>
-        <a href="#" class="text-gray-400 hover:text-pink-500"><i class="fab fa-instagram"></i></a>
-        <a href="#" class="text-gray-400 hover:text-cyan-500"><i class="fab fa-telegram-plane"></i></a>
+      <div class="flex gap-4 mt-4 justify-center">        <a href="tel:+998770009090" class="text-gray-400 hover:text-blue-500 flex items-center gap-2"><i class="fa-solid fa-phone"></i></a>
+        <a href="https://www.instagram.com/husma.fit/#" class="text-gray-400 hover:text-pink-500"><i class="fab fa-instagram"></i></a>
+        <a href="tel:+998770009090" class="text-gray-400 hover:text-blue-500 flex items-center gap-2"><i class="fab fa-telegram-plane"></i></a>
       </div>
     </div>
   </header>
@@ -89,183 +98,206 @@
   <!-- Hero -->
   <section class="relative py-24 px-4 mt-16 md:mt-0 bg-gradient-to-b from-gray-800 to-gray-900 text-center" data-aos="fade-up">
     <div class="container mx-auto max-w-4xl">
-      <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4">
-        <span class="text-red-600">Dars</span> Jadvali
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4 leading-tight">
+        <span class="text-red-600" data-lang="hero-schedule">Расписание</span> <span data-lang="hero-classes">занятий</span>
       </h1>
-      <p class="text-lg md:text-xl text-gray-300 mb-8">Har bir kun uchun to‘liq dastur. Filtrlang va o‘zingizga mosini tanlang!</p>
+      <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto" data-lang="hero-desc">
+        Полная программа на каждый день. Фильтруйте и выбирайте подходящее!
+      </p>
       
-      <!-- Filtr Tugmalari -->
+      <!-- Фильтры -->
       <div class="flex flex-wrap justify-center gap-3 mb-10" data-aos="fade-up" data-aos-delay="100">
-        <button class="filter-btn active" data-filter="all">Barchasi</button>
-        <button class="filter-btn" data-filter="kuch">Kuch</button>
-        <button class="filter-btn" data-filter="kardio">Kardio</button>
-        <button class="filter-btn" data-filter="yoga">Yoga</button>
-        <button class="filter-btn" data-filter="crossfit">CrossFit</button>
-        <button class="filter-btn" data-filter="zumba">Zumba</button>
+        <button class="filter-btn active" data-filter="all" data-lang="filter-all">Все</button>
+        <button class="filter-btn" data-filter="kuch" data-lang="filter-strength">Силовые</button>
+        <button class="filter-btn" data-filter="kardio" data-lang="filter-cardio">Кардио</button>
+        <button class="filter-btn" data-filter="yoga" data-lang="filter-yoga">Йога</button>
+        <button class="filter-btn" data-filter="crossfit" data-lang="filter-crossfit">CrossFit</button>
+        <button class="filter-btn" data-filter="zumba" data-lang="filter-zumba">Body</button>
       </div>
     </div>
   </section>
 
-  <!-- Jadval -->
+  <!-- Расписание -->
   <section class="py-16 px-4">
     <div class="container mx-auto">
 
-      <!-- Dushanba -->
-      <div class="day-card mb-8" data-day="dushanba" data-aos="fade-up">
-        <div class="flex items-center justify-between mb-4">
-          <h2 class="text-2xl font-bold flex items-center gap-3">
-            <span class="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center text-sm">Du</span>
-            Dushanba
+      <!-- Понедельник -->
+      <div class="day-card mb-10" data-day="dushanba" data-aos="fade-up">
+        <div class="flex items-center justify-between mb-5">
+          <h2 class="text-2xl md:text-3xl font-bold flex items-center gap-3">
+            <span class="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center text-base font-bold">Пн</span>
+            <span data-lang="day-monday">Понедельник - Суббота</span>
           </h2>
-          <span class="text-sm text-gray-400">06:00 – 23:00</span>
+          <span class="text-sm md:text-base text-gray-400" data-lang="hours">07:00 – 1:00</span>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          <div class="bg-gray-800 p-4 rounded-lg border border-gray-700" data-type="yoga">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div class="bg-gray-800 p-5 rounded-lg border border-gray-700 hover:border-red-600 transition" data-type="yoga">
             <span class="time-badge">06:00 – 07:00</span>
-            <h3 class="font-semibold mt-2">Hatha Yoga</h3>
-            <p class="text-sm text-gray-400">Nigora Karimova</p>
+            <h3 class="text-lg font-bold mt-2" data-lang="class-hatha">Хатха-йога</h3>
+            <p class="text-sm text-gray-400 mt-1" data-lang="trainer-nigora">Marya</p>
           </div>
-          <div class="bg-gray-800 p-4 rounded-lg border border-gray-700" data-type="kuch">
-            <span class="time-badge">17:00 – 18:30</span>
-            <h3 class="font-semibold mt-2">Kuch Mashqlari</h3>
-            <p class="text-sm text-gray-400">Sirojiddin Sayfiddinov</p>
+          <div class="bg-gray-800 p-5 rounded-lg border border-gray-700 hover:border-red-600 transition" data-type="kuch">
+            <span class="time-badge">3:00 – 20:00</span>
+            <h3 class="text-lg font-bold mt-2" data-lang="class-strength">Силовые тренировки</h3>
+            <p class="text-sm text-gray-400 mt-1" data-lang="trainer-siroj">Jonibek Norqobilov</p>
           </div>
-          <div class="bg-gray-800 p-4 rounded-lg border border-gray-700" data-type="crossfit">
-            <span class="time-badge">19:00 – 20:00</span>
-            <h3 class="font-semibold mt-2">CrossFit WOD</h3>
-            <p class="text-sm text-gray-400">Azizbek Toshmatov</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Seshanba -->
-      <div class="day-card mb-8" data-day="seshanba" data-aos="fade-up" data-aos-delay="100">
-        <div class="flex items-center justify-between mb-4">
-          <h2 class="text-2xl font-bold flex items-center gap-3">
-            <span class="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center text-sm">Se</span>
-            Seshanba
-          </h2>
-          <span class="text-sm text-gray-400">06:00 – 23:00</span>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          <div class="bg-gray-800 p-4 rounded-lg border border-gray-700" data-type="kardio">
-            <span class="time-badge">07:00 – 08:00</span>
-            <h3 class="font-semibold mt-2">Interval Kardio</h3>
-            <p class="text-sm text-gray-400">Azizbek Toshmatov</p>
-          </div>
-          <div class="bg-gray-800 p-4 rounded-lg border border-gray-700" data-type="zumba">
-            <span class="time-badge">18:30 – 19:30</span>
-            <h3 class="font-semibold mt-2">Zumba Party</h3>
-            <p class="text-sm text-gray-400">Madina Xo‘jayeva</p>
+          <div class="bg-gray-800 p-5 rounded-lg border border-gray-700 hover:border-red-600 transition" data-type="crossfit">
+            <span class="time-badge">2:00 – 18:00</span>
+            <h3 class="text-lg font-bold mt-2" data-lang="class-crossfit-wod">Плавания</h3>
+            <p class="text-sm text-gray-400 mt-1" data-lang="trainer-aziz">Dima</p>
           </div>
         </div>
       </div>
+<!-- Вторник -->
+<div class="day-card mb-10" data-day="seshanba" data-aos="fade-up" data-aos-delay="100">
+  <div class="flex items-center justify-between mb-5">
+    <h2 class="text-2xl md:text-3xl font-bold flex items-center gap-3">
+      <span class="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center text-base font-bold">Вт</span>
+      <span data-lang="day-tuesday">Вторник</span>
+    </h2>
+    <span class="text-sm md:text-base text-gray-400" data-lang="hours">06:00 – 23:00</span>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+    <div class="bg-gray-800 p-5 rounded-lg border border-gray-700 hover:border-red-600 transition" data-type="kardio">
+      <span class="time-badge">07:00 – 08:00</span>
+      <h3 class="text-lg font-bold mt-2" data-lang="class-bodybuilding">BodyBuilding</h3>
+      <p class="text-sm text-gray-400 mt-1" data-lang="trainer-aziz">Dima</p>
+    </div>
+    <div class="bg-gray-800 p-5 rounded-lg border border-gray-700 hover:border-red-600 transition" data-type="yoga">
+      <span class="time-badge">18:30 – 19:30</span>
+      <h3 class="text-lg font-bold mt-2" data-lang="class-yoga">Yoga</h3>
+      <p class="text-sm text-gray-400 mt-1" data-lang="trainer-madina">Мадина Хужаева</p>
+    </div>
+    <div class="bg-gray-800 p-5 rounded-lg border border-gray-700 hover:border-red-600 transition" data-type="swimming">
+      <span class="time-badge">20:00 – 21:00</span>
+      <h3 class="text-lg font-bold mt-2" data-lang="class-swimming">Плавание</h3>
+      <p class="text-sm text-gray-400 mt-1" data-lang="trainer-aziz">Dima</p>
+    </div>
+  </div>
+</div>
 
-      <!-- Chorshanba -->
-      <div class="day-card mb-8" data-day="chorshanba" data-aos="fade-up" data-aos-delay="200">
-        <div class="flex items-center justify-between mb-4">
-          <h2 class="text-2xl font-bold flex items-center gap-3">
-            <span class="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center text-sm">Ch</span>
-            Chorshanba
-          </h2>
-          <span class="text-sm text-gray-400">06:00 – 23:00</span>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          <div class="bg-gray-800 p-4 rounded-lg border border-gray-700" data-type="kuch">
-            <span class="time-badge">06:30 – 08:00</span>
-            <h3 class="font-semibold mt-2">Power Lifting</h3>
-            <p class="text-sm text-gray-400">Sirojiddin Sayfiddinov</p>
-          </div>
-          <div class="bg-gray-800 p-4 rounded-lg border border-gray-700" data-type="yoga">
-            <span class="time-badge">17:30 – 18:30</span>
-            <h3 class="font-semibold mt-2">Pilates</h3>
-            <p class="text-sm text-gray-400">Nigora Karimova</p>
-          </div>
-        </div>
-      </div>
+<!-- Среда -->
+<div class="day-card mb-10" data-day="chorshanba" data-aos="fade-up" data-aos-delay="200">
+  <div class="flex items-center justify-between mb-5">
+    <h2 class="text-2xl md:text-3xl font-bold flex items-center gap-3">
+      <span class="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center text-base font-bold">Ср</span>
+      <span data-lang="day-wednesday">Среда</span>
+    </h2>
+    <span class="text-sm md:text-base text-gray-400" data-lang="hours">06:00 – 23:00</span>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+    <div class="bg-gray-800 p-5 rounded-lg border border-gray-700 hover:border-red-600 transition" data-type="bodybuilding">
+      <span class="time-badge">06:30 – 08:00</span>
+      <h3 class="text-lg font-bold mt-2" data-lang="class-bodybuilding">BodyBuilding</h3>
+      <p class="text-sm text-gray-400 mt-1" data-lang="trainer-siroj">Jonibek Norqobilov</p>
+    </div>
+    <div class="bg-gray-800 p-5 rounded-lg border border-gray-700 hover:border-red-600 transition" data-type="yoga">
+      <span class="time-badge">17:30 – 18:30</span>
+      <h3 class="text-lg font-bold mt-2" data-lang="class-yoga">Yoga</h3>
+      <p class="text-sm text-gray-400 mt-1" data-lang="trainer-nigora">Marya</p>
+    </div>
+    <div class="bg-gray-800 p-5 rounded-lg border border-gray-700 hover:border-red-600 transition" data-type="swimming">
+      <span class="time-badge">18:30 – 19:30</span>
+      <h3 class="text-lg font-bold mt-2" data-lang="class-swimming">Плавание</h3>
+      <p class="text-sm text-gray-400 mt-1" data-lang="trainer-aziz">Dima</p>
+    </div>
+  </div>
+</div>
 
-      <!-- Payshanba -->
-      <div class="day-card mb-8" data-day="payshanba" data-aos="fade-up" data-aos-delay="300">
-        <div class="flex items-center justify-between mb-4">
-          <h2 class="text-2xl font-bold flex items-center gap-3">
-            <span class="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center text-sm">Pa</span>
-            Payshanba
-          </h2>
-          <span class="text-sm text-gray-400">06:00 – 23:00</span>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          <div class="bg-gray-800 p-4 rounded-lg border border-gray-700" data-type="crossfit">
-            <span class="time-badge">18:00 – 19:00</span>
-            <h3 class="font-semibold mt-2">CrossFit Endurance</h3>
-            <p class="text-sm text-gray-400">Azizbek Toshmatov</p>
-          </div>
-          <div class="bg-gray-800 p-4 rounded-lg border border-gray-700" data-type="yoga">
-            <span class="time-badge">20:00 – 21:00</span>
-            <h3 class="font-semibold mt-2">Vinyasa Yoga</h3>
-            <p class="text-sm text-gray-400">Nigora Karimova</p>
-          </div>
-        </div>
-      </div>
 
-      <!-- Juma -->
-      <div class="day-card mb-8" data-day="juma" data-aos="fade-up" data-aos-delay="400">
-        <div class="flex items-center justify-between mb-4">
-          <h2 class="text-2xl font-bold flex items-center gap-3">
-            <span class="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center text-sm">Ju</span>
-            Juma
-          </h2>
-          <span class="text-sm text-gray-400">06:00 – 23:00</span>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          <div class="bg-gray-800 p-4 rounded-lg border border-gray-700" data-type="yoga">
-            <span class="time-badge">06:00 – 07:00</span>
-            <h3 class="font-semibold mt-2">Kundalik Yoga</h3>
-            <p class="text-sm text-gray-400">Nigora Karimova</p>
-          </div>
-          <div class="bg-gray-800 p-4 rounded-lg border border-gray-700" data-type="zumba">
-            <span class="time-badge">19:00 – 20:00</span>
-            <h3 class="font-semibold mt-2">Zumba Fitness</h3>
-            <p class="text-sm text-gray-400">Madina Xo‘jayeva</p>
-          </div>
-        </div>
-      </div>
+<!-- Четверг -->
+<div class="day-card mb-10" data-day="payshanba" data-aos="fade-up" data-aos-delay="300">
+  <div class="flex items-center justify-between mb-5">
+    <h2 class="text-2xl md:text-3xl font-bold flex items-center gap-3">
+      <span class="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center text-base font-bold">Чт</span>
+      <span data-lang="day-thursday">Четверг</span>
+    </h2>
+    <span class="text-sm md:text-base text-gray-400" data-lang="hours">06:00 – 23:00</span>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+    <div class="bg-gray-800 p-5 rounded-lg border border-gray-700 hover:border-red-600 transition" data-type="crossfit">
+      <span class="time-badge">18:00 – 19:00</span>
+      <h3 class="text-lg font-bold mt-2" data-lang="class-crossfit-endurance">CrossFit Endurance</h3>
+      <p class="text-sm text-gray-400 mt-1" data-lang="trainer-aziz">Dima</p>
+    </div>
+    <div class="bg-gray-800 p-5 rounded-lg border border-gray-700 hover:border-red-600 transition" data-type="yoga">
+      <span class="time-badge">20:00 – 21:00</span>
+      <h3 class="text-lg font-bold mt-2" data-lang="class-yoga">Yoga</h3>
+      <p class="text-sm text-gray-400 mt-1" data-lang="trainer-nigora">Marya</p>
+    </div>
+    <div class="bg-gray-800 p-5 rounded-lg border border-gray-700 hover:border-red-600 transition" data-type="swimming">
+      <span class="time-badge">19:30 – 20:30</span>
+      <h3 class="text-lg font-bold mt-2" data-lang="class-swimming">Плавание</h3>
+      <p class="text-sm text-gray-400 mt-1" data-lang="trainer-aziz">Dima</p>
+    </div>
+  </div>
+</div>
 
-      <!-- Shanba -->
-      <div class="day-card mb-8" data-day="shanba" data-aos="fade-up" data-aos-delay="500">
-        <div class="flex items-center justify-between mb-4">
-          <h2 class="text-2xl font-bold flex items-center gap-3">
-            <span class="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center text-sm">Sha</span>
-            Shanba
+<!-- Пятница -->
+<div class="day-card mb-10" data-day="juma" data-aos="fade-up" data-aos-delay="400">
+  <div class="flex items-center justify-between mb-5">
+    <h2 class="text-2xl md:text-3xl font-bold flex items-center gap-3">
+      <span class="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center text-base font-bold">Пт</span>
+      <span data-lang="day-friday">Пятница</span>
+    </h2>
+    <span class="text-sm md:text-base text-gray-400" data-lang="hours">06:00 – 23:00</span>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+    <div class="bg-gray-800 p-5 rounded-lg border border-gray-700 hover:border-red-600 transition" data-type="yoga">
+      <span class="time-badge">06:00 – 07:00</span>
+      <h3 class="text-lg font-bold mt-2" data-lang="class-daily-yoga">Yoga</h3>
+      <p class="text-sm text-gray-400 mt-1" data-lang="trainer-nigora">Marya</p>
+    </div>
+    <div class="bg-gray-800 p-5 rounded-lg border border-gray-700 hover:border-red-600 transition" data-type="bodybuilding">
+      <span class="time-badge">19:00 – 20:00</span>
+      <h3 class="text-lg font-bold mt-2" data-lang="class-bodybuilding">BodyBuilding</h3>
+      <p class="text-sm text-gray-400 mt-1" data-lang="trainer-madina">Jonibek Norqobilov</p>
+    </div>
+    <div class="bg-gray-800 p-5 rounded-lg border border-gray-700 hover:border-red-600 transition" data-type="swimming">
+      <span class="time-badge">20:00 – 21:00</span>
+      <h3 class="text-lg font-bold mt-2" data-lang="class-swimming">Плавание</h3>
+      <p class="text-sm text-gray-400 mt-1" data-lang="trainer-aziz">Dima</p>
+    </div>
+  </div>
+</div>
+
+
+      <!-- Суббота -->
+      <div class="day-card mb-10" data-day="shanba" data-aos="fade-up" data-aos-delay="500">
+        <div class="flex items-center justify-between mb-5">
+          <h2 class="text-2xl md:text-3xl font-bold flex items-center gap-3">
+            <span class="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center text-base font-bold">Сб</span>
+            <span data-lang="day-saturday">Суббота</span>
           </h2>
-          <span class="text-sm text-gray-400">08:00 – 20:00</span>
+          <span class="text-sm md:text-base text-gray-400" data-lang="hours-sat">08:00 – 20:00</span>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          <div class="bg-gray-800 p-4 rounded-lg border border-gray-700" data-type="kuch">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div class="bg-gray-800 p-5 rounded-lg border border-gray-700 hover:border-red-600 transition" data-type="kuch">
             <span class="time-badge">10:00 – 11:30</span>
-            <h3 class="font-semibold mt-2">Oilaviy Kuch</h3>
-            <p class="text-sm text-gray-400">Barcha trenerlar</p>
+            <h3 class="text-lg font-bold mt-2" data-lang="class-family">Семейные силовые</h3>
+            <p class="text-sm text-gray-400 mt-1" data-lang="trainer-all">Все тренеры</p>
           </div>
-          <div class="bg-gray-800 p-4 rounded-lg border border-gray-700" data-type="crossfit">
+          <div class="bg-gray-800 p-5 rounded-lg border border-gray-700 hover:border-red-600 transition" data-type="crossfit">
             <span class="time-badge">16:00 – 17:00</span>
-            <h3 class="font-semibold mt-2">CrossFit Challenge</h3>
-            <p class="text-sm text-gray-400">Azizbek Toshmatov</p>
+            <h3 class="text-lg font-bold mt-2" data-lang="class-crossfit-challenge">CrossFit Challenge</h3>
+            <p class="text-sm text-gray-400 mt-1" data-lang="trainer-aziz">Dima</p>
           </div>
         </div>
       </div>
 
-      <!-- Yakshanba -->
-      <div class="day-card mb-8" data-day="yakshanba" data-aos="fade-up" data-aos-delay="600">
-        <div class="flex items-center justify-between mb-4">
-          <h2 class="text-2xl font-bold flex items-center gap-3">
-            <span class="w-10 h-10 bg-gray-600 rounded-full flex items-center justify-center text-sm">Ya</span>
-            Yakshanba
+      <!-- Воскресенье -->
+      <div class="day-card mb-10" data-day="yakshanba" data-aos="fade-up" data-aos-delay="600">
+        <div class="flex items-center justify-between mb-5">
+          <h2 class="text-2xl md:text-3xl font-bold flex items-center gap-3">
+            <span class="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center text-base font-bold">Вс</span>
+            <span data-lang="day-sunday">Воскресенье</span>
           </h2>
-          <span class="text-sm text-gray-400">Dam olish kuni</span>
+          <span class="text-sm md:text-base text-gray-400" data-lang="day-off">Выходной день</span>
         </div>
-        <div class="text-center py-8 text-gray-500">
-          <i class="fas fa-heart text-4xl mb-3 text-red-600"></i>
-          <p class="text-lg">Dam oling va kuch to‘plang!</p>
-          <p class="text-sm mt-2">Dushanbadan boshlab yana uchrashamiz</p>
+        <div class="text-center py-12">
+          <i class="fas fa-heart text-5xl mb-4 text-red-600"></i>
+          <p class="text-xl font-semibold" data-lang="rest-message">Отдыхайте и набирайтесь сил!</p>
+          <p class="text-base text-gray-400 mt-2" data-lang="see-you-monday">Увидимся с понедельника</p>
         </div>
       </div>
 
@@ -275,10 +307,12 @@
   <!-- CTA -->
   <section class="py-16 px-4 bg-red-600">
     <div class="container mx-auto text-center">
-      <h2 class="text-3xl md:text-4xl font-bold mb-4" data-aos="fade-up">Bugun mashg‘ulotga yoziling!</h2>
-      <p class="text-lg mb-8 max-w-xl mx-auto" data-aos="fade-up" data-aos-delay="100">Birinchi dars – bepul. Ro‘yxatdan o‘ting!</p>
-      <a href="user-register.html" class="bg-white text-red-600 font-bold px-8 py-3 rounded-full hover:bg-gray-100 transition text-lg" data-aos="fade-up" data-aos-delay="200">
-        Bepul sinov darsi
+      <h2 class="text-3xl md:text-4xl font-bold mb-4" data-aos="fade-up" data-lang="cta-title">Запишитесь на тренировку сегодня!</h2>
+      <p class="text-lg mb-8 max-w-xl mx-auto" data-aos="fade-up" data-aos-delay="100" data-lang="cta-desc">
+        Первое занятие – бесплатно. Зарегистрируйтесь!
+      </p>
+      <a href="user-register.html" class="bg-white text-red-600 font-bold px-8 py-3 rounded-full hover:bg-gray-100 transition text-lg" data-aos="fade-up" data-aos-delay="200" data-lang="cta-button">
+        Бесплатное пробное занятие
       </a>
     </div>
   </section>
@@ -286,34 +320,142 @@
   <!-- Footer -->
   <footer class="bg-gray-900 py-8 px-4 border-t border-gray-800">
     <div class="container mx-auto text-center text-sm text-gray-400">
-      <p>&copy; 2025 <span class="text-red-600">HusmaFit</span>. Barcha huquqlar himoyalangan.</p>
+      <p class="mb-3" data-lang="footer-copy">&copy; 2025 <span class="text-red-600">HusmaFit</span>. Все права защищены.</p>
+      <div class="flex justify-center gap-6">        <a href="tel:+998770009090" class="text-gray-400 hover:text-blue-500 flex items-center gap-2"><i class="fa-solid fa-phone"></i></a>
+        <a href="https://www.instagram.com/husma.fit/#" class="text-gray-400 hover:text-pink-500"><i class="fab fa-instagram"></i></a>
+        <a href="tel:+998770009090" class="text-gray-400 hover:text-blue-500 flex items-center gap-2"><i class="fab fa-telegram-plane"></i></a>
+      </div>
     </div>
   </footer>
 
-  <!-- Scripts -->
+  <!-- AOS Script -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init({ duration: 800, once: true });
+  </script>
 
-    // Filtr funksiyasi
-    document.querySelectorAll('.filter-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const filter = btn.getAttribute('data-filter');
-        
-        // Tugmalarni faollashtirish
-        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        
-        // Darslarni filtr qilish
-        document.querySelectorAll('.day-card > div > div').forEach(card => {
-          const type = card.getAttribute('data-type');
-          if (filter === 'all' || type === filter) {
-            card.style.display = 'block';
-          } else {
-            card.style.display = 'none';
-          }
+  <!-- Система перевода (единая с другими страницами) -->
+  <script>
+    const translations = {
+      ru: {
+        "title": "HusmaFit | Расписание",
+
+        // Навигация
+        "nav-home": "Главная", "nav-about": "О нас", "nav-services": "Услуги", "nav-schedule": "Расписание",
+        "nav-trainers": "Тренеры", "nav-contact": "Контакты", "nav-register": "Регистрация", "nav-admin": "Админ-панель",
+
+        // Hero
+        "hero-schedule": "Расписание", "hero-classes": "занятий",
+        "hero-desc": "Полная программа на каждый день. Фильтруйте и выбирайте подходящее!",
+
+        // Фильтры
+        "filter-all": "Все", "filter-strength": "Силовые", "filter-cardio": "Кардио",
+        "filter-yoga": "Йога", "filter-crossfit": "CrossFit", "filter-zumba": "Зумба",
+
+        // Дни недели
+        "day-monday": "Понедельник", "day-tuesday": "Вторник", "day-wednesday": "Среда",
+        "day-thursday": "Четверг", "day-friday": "Пятница", "day-saturday": "Суббота", "day-sunday": "Воскресенье",
+        "hours": "06:00 – 23:00", "hours-sat": "08:00 – 20:00", "day-off": "Выходной день",
+
+        // Занятия
+        "class-hatha": "Хатха-йога", "class-strength": "Силовые тренировки", "class-crossfit-wod": "CrossFit WOD",
+        "class-interval": "Интервальное кардио", "class-zumba-party": "Зумба-вечеринка", "class-powerlifting": "Пауэрлифтинг",
+        "class-pilates": "Пилатес", "class-crossfit-endurance": "CrossFit Endurance", "class-vinyasa": "Виньяса-йога",
+        "class-daily-yoga": "Ежедневная йога", "class-zumba-fitness": "Зумба-фитнес", "class-family": "Семейные силовые",
+        "class-crossfit-challenge": "CrossFit Challenge",
+
+        // Тренеры
+        "trainer-nigora": "Marya", "trainer-siroj": "Jonibek Norqobilov",
+        "trainer-aziz": "Dima", "trainer-madina": "Jonibek Norqobilov", "trainer-all": "Все тренеры",
+
+        // Воскресенье
+        "rest-message": "Отдыхайте и набирайтесь сил!", "see-you-monday": "Увидимся с понедельника",
+
+        // CTA
+        "cta-title": "Запишитесь на тренировку сегодня!", "cta-desc": "Первое занятие – бесплатно. Зарегистрируйтесь!",
+        "cta-button": "Бесплатное пробное занятие",
+
+        // Футер
+        "footer-copy": "&copy; 2025 <span class='text-red-600'>HusmaFit</span>. Все права защищены.",
+
+        "lang-text": "EN"
+      },
+      en: {
+        "title": "HusmaFit | Schedule",
+
+        // Navigation
+        "nav-home": "Home", "nav-about": "About", "nav-services": "Services", "nav-schedule": "Schedule",
+        "nav-trainers": "Trainers", "nav-contact": "Contact", "nav-register": "Register", "nav-admin": "Admin Panel",
+
+        // Hero
+        "hero-schedule": "Schedule", "hero-classes": "of Classes",
+        "hero-desc": "Full weekly program. Filter and choose what suits you!",
+
+        // Filters
+        "filter-all": "All", "filter-strength": "Strength", "filter-cardio": "Cardio",
+        "filter-yoga": "Yoga", "filter-crossfit": "CrossFit", "filter-zumba": "Zumba",
+
+        // Days
+        "day-monday": "Monday", "day-tuesday": "Tuesday", "day-wednesday": "Wednesday",
+        "day-thursday": "Thursday", "day-friday": "Friday", "day-saturday": "Saturday", "day-sunday": "Sunday",
+        "hours": "06:00 – 23:00", "hours-sat": "08:00 – 20:00", "day-off": "Day Off",
+
+        // Classes
+        "class-hatha": "Hatha Yoga", "class-strength": "Strength Training", "class-crossfit-wod": "CrossFit WOD",
+        "class-interval": "Interval Cardio", "class-zumba-party": "Zumba Party", "class-powerlifting": "Powerlifting",
+        "class-pilates": "Pilates", "class-crossfit-endurance": "CrossFit Endurance", "class-vinyasa": "Vinyasa Yoga",
+        "class-daily-yoga": "Daily Yoga", "class-zumba-fitness": "Zumba Fitness", "class-family": "Family Strength",
+        "class-crossfit-challenge": "CrossFit Challenge",
+
+        // Trainers
+        "trainer-nigora": "Nigora Karimova", "trainer-siroj": "Sirojiddin Sayfiddinov",
+        "trainer-aziz": "Dima", "trainer-madina": "Jonibek Norqobilov", "trainer-all": "All Trainers",
+
+        // Sunday
+        "rest-message": "Rest and recharge!", "see-you-monday": "See you on Monday",
+
+        // CTA
+        "cta-title": "Sign up for a workout today!", "cta-desc": "First session is free. Register now!",
+        "cta-button": "Free Trial Session",
+
+        // Footer
+        "footer-copy": "&copy; 2025 <span class='text-red-600'>HusmaFit</span>. All rights reserved.",
+
+        "lang-text": "RU"
+      }
+    };
+
+    let currentLang = localStorage.getItem('lang') || 'ru';
+
+    function toggleLanguage() {
+      currentLang = currentLang === 'ru' ? 'en' : 'ru';
+      localStorage.setItem('lang', currentLang);
+      document.documentElement.lang = currentLang;
+      updateTexts();
+      document.getElementById('lang-text').textContent = translations[currentLang]['lang-text'];
+    }
+
+    function updateTexts() {
+      const t = translations[currentLang];
+      Object.keys(t).forEach(key => {
+        document.querySelectorAll(`[data-lang="${key}"]`).forEach(el => {
+          el.innerHTML = t[key];
         });
       });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('lang-toggle').addEventListener('click', toggleLanguage);
+      document.documentElement.lang = currentLang;
+      updateTexts();
+      document.getElementById('lang-text').textContent = translations[currentLang]['lang-text'];
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('lang-toggle1').addEventListener('click', toggleLanguage);
+      document.documentElement.lang = currentLang;
+      updateTexts();
+      document.getElementById('lang-text').textContent = translations[currentLang]['lang-text'];
     });
   </script>
 </body>
