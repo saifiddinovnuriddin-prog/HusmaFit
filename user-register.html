@@ -19,6 +19,7 @@
     .nav-link { @apply relative transition-all duration-300 hover:text-red-500; }
     .nav-link::after { content: ''; @apply absolute bottom-0 left-0 w-0 h-0.5 bg-red-600 transition-all duration-300; }
     .nav-link:hover::after { @apply w-full; }
+    .hidden { display: none; }
   </style>
 </head>
 <body class="bg-gray-900 text-white overflow-x-hidden">
@@ -40,18 +41,19 @@
         <a href="jadval.html" class="nav-link font-semibold" data-lang="nav-schedule">Расписание</a>
         <a href="trainers.html" class="nav-link font-semibold" data-lang="nav-trainers">Тренеры</a>
         <a href="kontakt.html" class="nav-link font-semibold" data-lang="nav-contact">Контакты</a>
-        <a href="user-register.html" class="bg-red-600 text-white px-4 py-2 rounded-full font-bold hover:bg-red-700 text-red-500" data-lang="nav-register">Регистрация</a>
-        <a href="admin.html" class="bg-yellow-600 text-white px-4 py-2 rounded-full font-bold block text-center" data-lang="nav-admin">Админ-панель</a>
-              <!-- Language Button -->
-              <button id="lang-toggle" class="bg-gray-700 text-white px-3 py-2 rounded-full text-xs font-bold hover:bg-gray-600 transition flex items-center gap-1">
-                <i class="fas fa-globe"></i> <span id="lang-text">EN</span>
-              </button>
+        <a href="user-register.html" class="bg-red-600 text-white px-4 py-2 rounded-full font-bold hover:bg-red-700" data-lang="nav-register">Регистрация</a>
+        <a href="admin.html" class="bg-red-600 text-white px-4 py-2 rounded-full font-bold block text-center" data-lang="nav-admin">Админ-панель</a>
+        <!-- Language Button -->
+        <button id="lang-toggle" class="bg-gray-700 text-white px-3 py-2 rounded-full text-xs font-bold hover:bg-gray-600 transition flex items-center gap-1">
+          <i class="fas fa-globe"></i> <span id="lang-text">EN</span>
+        </button>
       </nav>
 
       <!-- Social (Desktop) -->
-      <div class="hidden md:flex gap-3">        <a href="tel:+998770009090" class="text-gray-400 hover:text-blue-500 flex items-center gap-2"><i class="fa-solid fa-phone"></i></a>
+      <div class="hidden md:flex gap-3">
+        <a href="tel:+998770009090" class="text-gray-400 hover:text-blue-500 flex items-center gap-2"><i class="fa-solid fa-phone"></i></a>
         <a href="https://www.instagram.com/husma.fit/#" class="text-gray-400 hover:text-pink-500"><i class="fab fa-instagram"></i></a>
-        <a href="tel:+998770009090" class="text-gray-400 hover:text-blue-500 flex items-center gap-2"><i class="fab fa-telegram-plane"></i></a>
+        <a href="https://t.me/Husma_Hotel_Spa" class="text-gray-400 hover:text-blue-500 flex items-center gap-2"><i class="fab fa-telegram-plane"></i></a>
       </div>
 
       <!-- Mobile Button -->
@@ -69,8 +71,8 @@
         <a href="jadval.html" class="nav-link font-semibold" data-lang="nav-schedule">Расписание</a>
         <a href="trainers.html" class="nav-link font-semibold" data-lang="nav-trainers">Тренеры</a>
         <a href="kontakt.html" class="nav-link font-semibold" data-lang="nav-contact">Контакты</a>
-        <a href="user-register.html" class="bg-red-600 text-white px-4 py-2 rounded-full font-bold hover:bg-red- text-red-500" data-lang="nav-register">Регистрация</a>
-        <a href="admin.html" class="bg-yellow-600 text-white px-4 py-2 rounded-full font-bold block text-center" data-lang="nav-admin">Админ-панель</a>
+        <a href="user-register.html" class="bg-red-600 text-white px-4 py-2 rounded-full font-bold hover:bg-red-700" data-lang="nav-register">Регистрация</a>
+        <a href="admin.html" class="bg-red-600 text-white px-4 py-2 rounded-full font-bold block text-center" data-lang="nav-admin">Админ-панель</a>
         <!-- Language Button (Mobile) -->
         <div class="flex justify-center mb-4">
           <button id="lang-toggle-mobile" class="bg-gray-700 text-white px-3 py-2 rounded-full text-xs font-bold hover:bg-gray-600 transition flex items-center gap-1">
@@ -78,9 +80,10 @@
           </button>
         </div>
       </nav>
-      <div class="flex gap-4 mt-4 justify-center">        <a href="tel:+998770009090" class="text-gray-400 hover:text-blue-500 flex items-center gap-2"><i class="fa-solid fa-phone"></i></a>
+      <div class="flex gap-4 mt-4 justify-center">
+        <a href="tel:+998770009090" class="text-gray-400 hover:text-blue-500 flex items-center gap-2"><i class="fa-solid fa-phone"></i></a>
         <a href="https://www.instagram.com/husma.fit/#" class="text-gray-400 hover:text-pink-500"><i class="fab fa-instagram"></i></a>
-        <a href="tel:+998770009090" class="text-gray-400 hover:text-blue-500 flex items-center gap-2"><i class="fab fa-telegram-plane"></i></a>
+        <a href="https://t.me/Husma_Hotel_Spa" class="text-gray-400 hover:text-blue-500 flex items-center gap-2"><i class="fab fa-telegram-plane"></i></a>
       </div>
     </div>
   </header>
@@ -91,16 +94,33 @@
       <h2 class="text-4xl font-bold text-center mb-8" data-lang="form-title">Регистрация</h2>
       
       <form id="register-form" class="space-y-5 bg-gray-800 p-8 rounded-xl shadow-2xl">
+        <!-- Ism -->
         <input type="text" id="name" placeholder="Ваше имя" required class="w-full px-4 py-3 bg-gray-700 rounded-lg text-white placeholder-gray-400" data-lang-placeholder="field-name">
+
+        <!-- Telefon -->
         <input type="tel" id="phone" placeholder="+998 __ ___ __ __" required class="w-full px-4 py-3 bg-gray-700 rounded-lg text-white placeholder-gray-400" data-lang-placeholder="field-phone">
-        <select id="plan" class="w-full px-4 py-3 bg-gray-700 rounded-lg text-white" data-lang-placeholder="field-plan">
-          <option value="">Выберите абонемент</option>
-          <option value="50000" data-lang-option="plan-day">1 день – 50 000 сум</option>
-          <option value="450000" data-lang-option="plan-month">1 месяц – 450 000 сум</option>
-          <option value="4500000" data-lang-option="plan-year">1 год – 4 500 000 сум</option>
+
+        <!-- Sport turi -->
+        <select id="sport" class="w-full px-4 py-3 bg-gray-700 rounded-lg text-white" data-lang-placeholder="field-sport">
+          <option value="">Выберите вид спорта</option>
+          <option value="gym" data-lang-option="sport-gym">Фитнес-зал</option>
+          <option value="pool" data-lang-option="sport-pool">Бассейн</option>
+          <option value="massage" data-lang-option="sport-massage">Массаж</option>
+          <option value="sauna" data-lang-option="sport-sauna">Сауна</option>
         </select>
 
-        <button id="submit" type="button" class="w-full bg-green-600 text-white py-3 rounded-lg font-bold hover:bg-green-700 transition transform hover:scale-105" data-lang="btn-submit">
+        <!-- Abonement (sportga qarab dinamik) -->
+        <select id="plan" class="w-full px-4 py-3 bg-gray-700 rounded-lg text-white hidden" data-lang-placeholder="field-plan">
+          <option value="">Выберите абонемент</option>
+        </select>
+
+        <!-- Narx ko'rsatish -->
+        <div id="price-display" class="hidden text-center py-3 text-lg font-bold text-green-400">
+          <span data-lang="price-label">Итого:</span> <span id="price-value">0 сум</span>
+        </div>
+
+        <!-- Tugma -->
+        <button id="submit" type="button" class="w-full bg-green-600 text-white py-3 rounded-lg font-bold hover:bg-green-700 transition transform hover:scale-105 hidden" data-lang="btn-submit">
           Перейти в зал и оплатить
         </button>
       </form>
@@ -118,7 +138,7 @@
     </div>
   </footer>
 
-  <!-- Translation System + Form Logic -->
+  <!-- Translation + Dynamic Pricing -->
   <script>
     const translations = {
       ru: {
@@ -130,18 +150,37 @@
         "form-title": "Регистрация",
         "field-name": "Ваше имя",
         "field-phone": "+998 __ ___ __ __",
+        "field-sport": "Выберите вид спорта",
+        "sport-gym": "Фитнес-зал",
+        "sport-pool": "Бассейн",
+        "sport-massage": "Массаж",
+        "sport-sauna": "Сауна",
         "field-plan": "Выберите абонемент",
-        "plan-day": "1 день – 50 000 сум",
-        "plan-month": "1 месяц – 450 000 сум",
-        "plan-year": "1 год – 4 500 000 сум",
+        "price-label": "Итого:",
         "btn-submit": "Перейти в зал и оплатить",
         "free-trial": "Первое занятие – бесплатно!",
 
-        // Footer
-        "footer-copy": "© 2025 <span class=\"text-red-600\">HusmaFit</span>. Все права защищены.",
+        // Plans (sport bo'yicha)
+        "plan-gym-day": "1 день – 80 000 сум",
+        "plan-gym-month": "1 месяц – 1 600 000 сум",
+        "plan-gym-year": "1 год – 9 240 000 сум",
+
+        "plan-pool-day": "1 день – 140 000 сум",
+        "plan-pool-month": "1 месяц – 2 500 000 сум",
+        "plan-pool-year": "1 год – 14 000 000 сум",
+
+        "plan-massage-day": "1 день – 250 000 сум",
+        "plan-massage-month": "1 месяц – 4 500 000 сум",
+        "plan-massage-year": "1 год – 25 000 000 сум",
+
+        "plan-sauna-day": "1 день – 200 000 сум",
+        "plan-sauna-month": "1 месяц – 3 600 000 сум",
+        "plan-sauna-year": "1 год – 20 000 000 сум",
 
         // Alerts
         "alert-fill": "Пожалуйста, заполните все поля!",
+        "alert-sport": "Пожалуйста, выберите вид спорта!",
+        "alert-plan": "Пожалуйста, выберите абонемент!",
 
         "lang-text": "EN"
       },
@@ -154,21 +193,48 @@
         "form-title": "Register",
         "field-name": "Your Name",
         "field-phone": "+998 __ ___ __ __",
+        "field-sport": "Choose Sport Type",
+        "sport-gym": "Gym",
+        "sport-pool": "Pool",
+        "sport-massage": "Massage",
+        "sport-sauna": "Sauna",
         "field-plan": "Choose a plan",
-        "plan-day": "1 Day – 50,000 UZS",
-        "plan-month": "1 Month – 450,000 UZS",
-        "plan-year": "1 Year – 4,500,000 UZS",
+        "price-label": "Total:",
         "btn-submit": "Go to gym & pay",
         "free-trial": "First session – free!",
 
-        // Footer
-        "footer-copy": "© 2025 <span class=\"text-red-600\">HusmaFit</span>. All rights reserved.",
+        // Plans
+        "plan-gym-day": "1 Day – 80,000 UZS",
+        "plan-gym-month": "1 Month – 1,600,000 UZS",
+        "plan-gym-year": "1 Year – 9,240,000 UZS",
+
+        "plan-pool-day": "1 Day – 140,000 UZS",
+        "plan-pool-month": "1 Month – 2,500,000 UZS",
+        "plan-pool-year": "1 Year – 14,000,000 UZS",
+
+        "plan-massage-day": "1 Day – 250,000 UZS",
+        "plan-massage-month": "1 Month – 4,500,000 UZS",
+        "plan-massage-year": "1 Year – 25,000,000 UZS",
+
+        "plan-sauna-day": "1 Day – 200,000 UZS",
+        "plan-sauna-month": "1 Month – 3,600,000 UZS",
+        "plan-sauna-year": "1 Year – 20,000,000 UZS",
 
         // Alerts
         "alert-fill": "Please fill in all fields!",
+        "alert-sport": "Please select a sport type!",
+        "alert-plan": "Please select a plan!",
 
         "lang-text": "RU"
       }
+    };
+
+    // Narxlar (sport + muddat bo'yicha)
+    const prices = {
+      gym: { day: 80000, month: 1600000, year: 9240000 },
+      pool: { day: 140000, month: 2500000, year: 14000000 },
+      massage: { day: 250000, month: 4500000, year: 25000000 },
+      sauna: { day: 200000, month: 3600000, year: 20000000 }
     };
 
     let currentLang = localStorage.getItem('lang') || 'ru';
@@ -178,50 +244,112 @@
       localStorage.setItem('lang', currentLang);
       document.documentElement.lang = currentLang;
       updateTexts();
+      updateLanguageButton();
+      // Sport tanlangan bo'lsa, abonementlarni qayta yuklash
+      const sport = document.getElementById('sport').value;
+      if (sport) updatePlanOptions(sport);
+    }
+
+    function updateLanguageButton() {
       document.getElementById('lang-text').textContent = translations[currentLang]['lang-text'];
-      const mobileText = document.getElementById('lang-text-mobile');
-      if (mobileText) mobileText.textContent = translations[currentLang]['lang-text'];
+      const mobile = document.getElementById('lang-text-mobile');
+      if (mobile) mobile.textContent = translations[currentLang]['lang-text'];
     }
 
     function updateTexts() {
       const t = translations[currentLang];
       Object.keys(t).forEach(key => {
-        // Text content
-        document.querySelectorAll(`[data-lang="${key}"]`).forEach(el => {
-          el.innerHTML = t[key];
-        });
-        // Placeholders
-        document.querySelectorAll(`[data-lang-placeholder="${key}"]`).forEach(el => {
-          el.placeholder = t[key];
-        });
-        // Select options
-        document.querySelectorAll(`[data-lang-option="${key}"]`).forEach(el => {
-          el.textContent = t[key];
-        });
+        document.querySelectorAll(`[data-lang="${key}"]`).forEach(el => el.innerHTML = t[key]);
+        document.querySelectorAll(`[data-lang-placeholder="${key}"]`).forEach(el => el.placeholder = t[key]);
+        document.querySelectorAll(`[data-lang-option="${key}"]`).forEach(el => el.textContent = t[key]);
       });
 
-      // Update select default option
-      const select = document.getElementById('plan');
-      if (select) {
-        select.options[0].textContent = t["field-plan"];
+      const planSelect = document.getElementById('plan');
+      if (planSelect && planSelect.options.length > 0) {
+        planSelect.options[0].textContent = t["field-plan"];
       }
     }
 
-    // Form submission
+    function updatePlanOptions(sport) {
+      const planSelect = document.getElementById('plan');
+      const priceDisplay = document.getElementById('price-display');
+      const submitBtn = document.getElementById('submit');
+
+      // Oldin tozalash
+      planSelect.innerHTML = '<option value="">' + translations[currentLang]["field-plan"] + '</option>';
+      planSelect.classList.remove('hidden');
+
+      if (!sport) {
+        priceDisplay.classList.add('hidden');
+        submitBtn.classList.add('hidden');
+        return;
+      }
+
+      const t = translations[currentLang];
+      const p = prices[sport];
+
+      // Abonement variantlari
+      const plans = [
+        { key: 'day', text: t[`plan-${sport}-day`], value: p.day },
+        { key: 'month', text: t[`plan-${sport}-month`], value: p.month },
+        { key: 'year', text: t[`plan-${sport}-year`], value: p.year }
+      ];
+
+      plans.forEach(plan => {
+        const opt = document.createElement('option');
+        opt.value = plan.value;
+        opt.textContent = plan.text;
+        opt.dataset.period = plan.key;
+        planSelect.appendChild(opt);
+      });
+
+      // Narxni ko'rsatish
+      planSelect.addEventListener('change', function() {
+        const selectedValue = this.value;
+        if (selectedValue) {
+          document.getElementById('price-value').textContent = parseInt(selectedValue).toLocaleString() + ' сум';
+          priceDisplay.classList.remove('hidden');
+          submitBtn.classList.remove('hidden');
+        } else {
+          priceDisplay.classList.add('hidden');
+          submitBtn.classList.add('hidden');
+        }
+      });
+
+      priceDisplay.classList.add('hidden');
+      submitBtn.classList.add('hidden');
+    }
+
+    // Sport o'zgarganda
+    document.getElementById('sport').addEventListener('change', function() {
+      updatePlanOptions(this.value);
+    });
+
+    // Submit
     document.getElementById('submit').addEventListener('click', function() {
       const name = document.getElementById('name').value.trim();
       const phone = document.getElementById('phone').value.trim();
+      const sport = document.getElementById('sport').value;
       const plan = document.getElementById('plan').value;
 
-      if (!name || !phone || !plan) {
+      if (!name || !phone) {
         alert(translations[currentLang]["alert-fill"]);
+        return;
+      }
+      if (!sport) {
+        alert(translations[currentLang]["alert-sport"]);
+        return;
+      }
+      if (!plan) {
+        alert(translations[currentLang]["alert-plan"]);
         return;
       }
 
       const registration = {
         name,
         phone,
-        plan,
+        sport,
+        plan: parseInt(plan),
         date: new Date().toLocaleString(currentLang === 'ru' ? 'ru-RU' : 'en-US')
       };
 
@@ -239,11 +367,10 @@
       const langToggleMobile = document.getElementById('lang-toggle-mobile');
       if (langToggle) langToggle.addEventListener('click', toggleLanguage);
       if (langToggleMobile) langToggleMobile.addEventListener('click', toggleLanguage);
+
       document.documentElement.lang = currentLang;
       updateTexts();
-      document.getElementById('lang-text').textContent = translations[currentLang]['lang-text'];
-      const mobileText = document.getElementById('lang-text-mobile');
-      if (mobileText) mobileText.textContent = translations[currentLang]['lang-text'];
+      updateLanguageButton();
     });
   </script>
 </body>
